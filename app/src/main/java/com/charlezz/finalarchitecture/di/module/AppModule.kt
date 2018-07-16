@@ -1,8 +1,13 @@
 package com.charlezz.finalarchitecture.di.module
 
 import android.app.Application
+import android.arch.persistence.db.SupportSQLiteDatabase
 import android.arch.persistence.room.Room
+import android.arch.persistence.room.RoomDatabase
+import android.content.ContentValues
 import android.content.Context
+import android.database.sqlite.SQLiteDatabase
+import android.util.Log
 import com.charlezz.finalarchitecture.App
 import com.charlezz.finalarchitecture.AppConstants
 import com.charlezz.finalarchitecture.data.AppDataManager
@@ -43,8 +48,22 @@ class AppModule {
     @Singleton
     fun provideAppDatabase(context: Context, @DatabaseInfo dbName: String): AppDatabase {
         return Room
-                .databaseBuilder(context, AppDatabase::class.java, dbName)
+                .inMemoryDatabaseBuilder(context,AppDatabase::class.java) // temporary
+//                .databaseBuilder(context, AppDatabase::class.java, dbName) // permanent
                 .fallbackToDestructiveMigration()
+                .addCallback(object : RoomDatabase.Callback(){
+                    override fun onCreate(db: SupportSQLiteDatabase) {
+                        super.onCreate(db)
+                        Log.e(TAG,"onCreate")
+                        for( index in 0 until 100000){
+                            Log.e(TAG,"index ${index}")
+                            val cv = ContentValues()
+                            cv.put("name", "Name$index")
+                            cv.put("birth", "$index")
+                            db.insert("person", SQLiteDatabase.CONFLICT_REPLACE,cv)
+                        }
+                    }
+                })
                 .build()
     }
 

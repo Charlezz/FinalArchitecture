@@ -6,6 +6,7 @@ import com.charlezz.finalarchitecture.R
 import com.charlezz.finalarchitecture.databinding.FragmentPersonBinding
 import com.charlezz.finalarchitecture.di.annotation.FragmentScope
 import com.charlezz.finalarchitecture.ui.local.PersonActivity
+import com.charlezz.finalarchitecture.ui.local.PersonAdapter
 import com.charlezz.finalarchitecture.ui.local.PersonFragment
 import com.charlezz.finalarchitecture.viewmodel.PersonFragmentViewModel
 import dagger.Module
@@ -21,11 +22,14 @@ class PersonFragmentModule {
                     activity.layoutInflater,
                     R.layout.fragment_person,
                     null,
-                    false
-            )
+                    false)
 
     @Provides
     @FragmentScope
     fun providePersonFragmentViewModel(fragment: PersonFragment): PersonFragmentViewModel =
             ViewModelProviders.of(fragment).get(PersonFragmentViewModel::class.java)
+
+    @Provides
+    @FragmentScope
+    fun providePersonAdapter() = PersonAdapter()
 }

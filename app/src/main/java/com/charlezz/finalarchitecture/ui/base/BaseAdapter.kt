@@ -1,4 +1,4 @@
-package com.charlezz.finalarchitecture.ui
+package com.charlezz.finalarchitecture.ui.base
 
 import android.arch.paging.PagedListAdapter
 import android.databinding.DataBindingUtil

@@ -4,8 +4,8 @@ import android.support.v7.util.DiffUtil
 import com.charlezz.finalarchitecture.R
 import com.charlezz.finalarchitecture.data.local.entity.Person
 import com.charlezz.finalarchitecture.databinding.ViewPersonBinding
-import com.charlezz.finalarchitecture.ui.BaseAdapter
-import com.charlezz.finalarchitecture.ui.BaseViewHolder
+import com.charlezz.finalarchitecture.ui.base.BaseAdapter
+import com.charlezz.finalarchitecture.ui.base.BaseViewHolder
 
 
 class PersonAdapter : BaseAdapter<Person, ViewPersonBinding, PersonAdapter.PersonViewHolder>(diffCallback) {

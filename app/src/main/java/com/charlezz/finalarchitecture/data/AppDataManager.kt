@@ -1,7 +1,9 @@
 package com.charlezz.finalarchitecture.data
 
+import android.arch.paging.DataSource
 import android.content.Context
 import com.charlezz.finalarchitecture.data.local.DBHelper
+import com.charlezz.finalarchitecture.data.local.entity.Person
 import com.charlezz.finalarchitecture.data.pref.PreferencesHelper
 import com.charlezz.finalarchitecture.data.remote.ApiHelper
 import javax.inject.Inject
@@ -15,6 +17,7 @@ constructor(val context: Context,
             val preferencesHelper: PreferencesHelper,
             val apiHelper: ApiHelper
 ) : DataManager {
+    override fun getAllPersons(): DataSource.Factory<Int, Person> = dbHelper.getAllPersons()
 //    override fun fetchAllPhotos():Observable<Photo> {
 //
 //        return Observable.create<Photo> { emitter ->

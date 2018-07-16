@@ -1,7 +1,10 @@
 package com.charlezz.finalarchitecture.data.local
 
-interface DBHelper {
+import android.arch.paging.DataSource
+import com.charlezz.finalarchitecture.data.local.entity.Person
 
+interface DBHelper {
+    fun getAllPersons(): DataSource.Factory<Int, Person>
 //    fun insertDeck(deck: Deck)
 //    fun getAllDecks(): LiveData<List<Deck>>
 //    fun getAllCards(): LiveData<List<Card>>

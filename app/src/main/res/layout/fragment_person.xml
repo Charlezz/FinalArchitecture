@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/tools"
+        >
 
     <data>
         <variable
@@ -12,8 +14,11 @@
         android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            bind:list="@{viewmodel.persons}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
