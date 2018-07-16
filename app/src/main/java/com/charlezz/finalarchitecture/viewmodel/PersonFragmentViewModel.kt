@@ -11,6 +11,7 @@ class PersonFragmentViewModel(application: Application) : AndroidViewModel(appli
     val persons = LivePagedListBuilder((getApplication() as App).dataManager.getAllPersons(),
             PagedList.Config.Builder()
                     .setPageSize(20)
+                    .setPrefetchDistance(0)
                     .setEnablePlaceholders(true)
                     .build()
     ).build()
