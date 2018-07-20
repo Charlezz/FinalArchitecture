@@ -8,21 +8,24 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.charlezz.finalarchitecture.BR
 
-open abstract class BaseAdapter<T, VDB : ViewDataBinding, VH : BaseViewHolder<VDB>>
+abstract class BaseAdapter<T, VDB : ViewDataBinding, VH : BaseViewHolder<VDB>>
 (diffCallback: DiffUtil.ItemCallback<T>)
     : PagedListAdapter<T, VH>(diffCallback) {
     abstract fun getLayoutId():Int
 
+    @Suppress("UNCHECKED_CAST")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         val binding = DataBindingUtil.inflate<VDB>(
                 LayoutInflater.from(parent.context),
                 getLayoutId(),
                 parent,
                 false)
-        return BaseViewHolder(binding) as VH
+
+        return object:BaseViewHolder<VDB>(binding) {} as VH
     }
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         holder.binding.setVariable(BR.data, getItem(position))
+        holder.binding.executePendingBindings()
     }
 }

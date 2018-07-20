@@ -15,9 +15,11 @@ class PersonAdapter : BaseAdapter<Person, ViewPersonBinding, PersonAdapter.Perso
     companion object {
         val diffCallback = object : DiffUtil.ItemCallback<Person>() {
             override fun areContentsTheSame(oldItem: Person?, newItem: Person?): Boolean {
-                return if (oldItem != null && newItem != null) oldItem.id == newItem.id &&
-                        oldItem.birth == newItem.birth &&
-                        oldItem.name == newItem.name else {
+                return if (oldItem != null && newItem != null){
+                    oldItem.id == newItem.id &&
+                            oldItem.birth == newItem.birth &&
+                            oldItem.name == newItem.name
+                } else {
                     false
                 }
             }

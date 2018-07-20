@@ -2,7 +2,7 @@ package com.charlezz.finalarchitecture.data
 
 import android.arch.paging.DataSource
 import android.content.Context
-import com.charlezz.finalarchitecture.data.local.DBHelper
+import com.charlezz.finalarchitecture.data.local.dao.DBHelper
 import com.charlezz.finalarchitecture.data.local.entity.Person
 import com.charlezz.finalarchitecture.data.pref.PreferencesHelper
 import com.charlezz.finalarchitecture.data.remote.ApiHelper
@@ -15,8 +15,11 @@ class AppDataManager
 constructor(val context: Context,
             val dbHelper: DBHelper,
             val preferencesHelper: PreferencesHelper,
-            val apiHelper: ApiHelper
-) : DataManager {
+            val apiHelper: ApiHelper)
+    : DataManager {
+    override fun getPosts() {
+    }
+
     override fun getAllPersons(): DataSource.Factory<Int, Person> = dbHelper.getAllPersons()
 //    override fun fetchAllPhotos():Observable<Photo> {
 //

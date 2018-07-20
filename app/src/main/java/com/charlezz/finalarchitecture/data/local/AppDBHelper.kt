@@ -1,14 +1,15 @@
 package com.charlezz.finalarchitecture.data.local
 
 import android.arch.paging.DataSource
+import com.charlezz.finalarchitecture.data.local.dao.DBHelper
 import com.charlezz.finalarchitecture.data.local.entity.Person
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class AppDBHelper @Inject constructor(private val appDatabase: AppDatabase, val executors: AppExecutors) : DBHelper {
+class AppDBHelper @Inject constructor(private val appDatabase: AppDatabase, val executors: AppExecutors):DBHelper{
     override fun getAllPersons(): DataSource.Factory<Int, Person> {
-        return appDatabase.personDao().getAllPersons()
+        return appDatabase.dao().getAllPersons()
     }
 //    val TAG = AppDBHelper::class.java.simpleName
 //    override fun getCard(name: String): Card = appDatabase.cardDao().getCard(name)

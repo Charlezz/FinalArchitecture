@@ -15,16 +15,16 @@ import com.charlezz.finalarchitecture.data.DataManager
 import com.charlezz.finalarchitecture.data.local.AppDBHelper
 import com.charlezz.finalarchitecture.data.local.AppDatabase
 import com.charlezz.finalarchitecture.data.local.AppExecutors
-import com.charlezz.finalarchitecture.data.local.DBHelper
+import com.charlezz.finalarchitecture.data.local.dao.DBHelper
 import com.charlezz.finalarchitecture.data.pref.AppPreferencesHelper
 import com.charlezz.finalarchitecture.data.pref.PreferencesHelper
 import com.charlezz.finalarchitecture.data.remote.ApiHelper
-import com.charlezz.finalarchitecture.data.remote.AppApiHelper
 import com.charlezz.finalarchitecture.di.annotation.DatabaseInfo
 import com.charlezz.finalarchitecture.di.annotation.PreferenceInfo
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
+import retrofit2.Retrofit
 import javax.inject.Singleton
 
 @Module
@@ -56,7 +56,7 @@ class AppModule {
                         super.onCreate(db)
                         Log.e(TAG,"onCreate")
                         for( index in 0 until 100000){
-                            Log.e(TAG,"index ${index}")
+//                            Log.v(TAG,"index $index")
                             val cv = ContentValues()
                             cv.put("name", "Name$index")
                             cv.put("birth", "$index")
@@ -73,6 +73,10 @@ class AppModule {
         return appDBHelper
     }
 
+    @Provides
+    @Singleton
+    fun provideApiHelper():ApiHelper=Retrofit.Builder().baseUrl("http://www.google.com").build().create(ApiHelper::class.java)
+
 
     @Provides
     @Singleton
@@ -86,11 +90,11 @@ class AppModule {
         return appPreferencesHelper
     }
 
-    @Provides
-    @Singleton
-    fun provideApiHelper(appApiHelper: AppApiHelper): ApiHelper {
-        return appApiHelper
-    }
+//    @Provides
+//    @Singleton
+//    fun provideApiHelper(appApiHelper: AppApiHelper): ApiHelper {
+//        return appApiHelper
+//    }
 
     @Provides
     @Singleton

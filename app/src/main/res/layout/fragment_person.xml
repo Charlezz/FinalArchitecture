@@ -4,6 +4,7 @@
         >
 
     <data>
+        <import type="android.view.View"/>
         <variable
             name="viewmodel"
             type="com.charlezz.finalarchitecture.viewmodel.PersonFragmentViewModel" />
@@ -19,10 +20,28 @@
             android:layout_height="0dp"
             app:layoutManager="android.support.v7.widget.LinearLayoutManager"
             bind:list="@{viewmodel.persons}"
+            android:scrollbars="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+        <ProgressBar
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="wrap_content"
+            android:visibility="@{viewmodel.isLoaded ? View.GONE : View.VISIBLE }"
+            android:id="@+id/progress_bar"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text="Dummy 생성중"
+            android:visibility="@{viewmodel.isLoaded ? View.GONE : View.VISIBLE }"
+            app:layout_constraintLeft_toLeftOf="@+id/progress_bar"
+            app:layout_constraintRight_toRightOf="@+id/progress_bar"
+            app:layout_constraintTop_toBottomOf="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </android.support.constraint.ConstraintLayout>
 </layout>

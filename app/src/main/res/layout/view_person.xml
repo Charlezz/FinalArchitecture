@@ -1,18 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
+
         <variable
             name="data"
-            type="com.charlezz.finalarchitecture.data.local.entity.Person"/>
+            type="com.charlezz.finalarchitecture.data.local.entity.Person" />
     </data>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <TextView
-        android:id="@+id/name"
-        android:text="@{data.name, default = hello}"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{data.name, default = name}"
+                android:textColor="@android:color/black"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{data.name, default = id}"
+                android:textColor="@android:color/darker_gray"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/name" />
+
+            <TextView
+                android:id="@+id/birth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{data.birth, default = birth}"
+                android:textColor="@android:color/darker_gray"
+                app:layout_constraintTop_toBottomOf="@+id/id" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
 </layout>

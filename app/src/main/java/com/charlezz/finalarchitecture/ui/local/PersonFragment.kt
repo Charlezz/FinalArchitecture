@@ -1,8 +1,6 @@
 package com.charlezz.finalarchitecture.ui.local
 
-import android.arch.lifecycle.Observer
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,9 +27,6 @@ class PersonFragment : DaggerFragment() {
         binding.setLifecycleOwner(this)
         binding.recyclerView.adapter = adapter
         binding.viewmodel = viewmodel
-        viewmodel.persons.observe(this, Observer {
-            Log.e(TAG,"data count:${it?.size}") }
-        )
     }
 
 }

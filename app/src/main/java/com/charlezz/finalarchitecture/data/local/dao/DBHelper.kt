@@ -7,7 +7,7 @@ import com.charlezz.finalarchitecture.data.local.entity.Person
 
 
 @Dao
-interface PersonDao {
+interface DBHelper {
     @Query("SELECT * FROM person")
     fun getAllPersons():DataSource.Factory<Int, Person>
 

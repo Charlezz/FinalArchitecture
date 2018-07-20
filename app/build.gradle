@@ -97,4 +97,7 @@ dependencies {
     //multidex
     implementation 'com.android.support:multidex:1.0.3'
 
+    //design support
+    implementation "com.android.support:cardview-v7:$supportLibVersion"
+
 }

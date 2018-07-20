@@ -1,5 +1,6 @@
 package com.charlezz.finalarchitecture.di.module.local
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import com.charlezz.finalarchitecture.R
@@ -14,7 +15,6 @@ import dagger.Provides
 
 @Module
 class PersonFragmentModule {
-
     @Provides
     @FragmentScope
     fun provideFragmentPersonBinding(activity: PersonActivity): FragmentPersonBinding =
@@ -27,7 +27,10 @@ class PersonFragmentModule {
     @Provides
     @FragmentScope
     fun providePersonFragmentViewModel(fragment: PersonFragment): PersonFragmentViewModel =
-            ViewModelProviders.of(fragment).get(PersonFragmentViewModel::class.java)
+            ViewModelProviders.of(fragment).get(PersonFragmentViewModel::class.java).apply {
+                persons.observe(fragment, Observer{})
+                isLoaded.observe(fragment, Observer {})
+            }
 
     @Provides
     @FragmentScope
