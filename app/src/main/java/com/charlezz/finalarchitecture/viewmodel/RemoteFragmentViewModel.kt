@@ -8,5 +8,6 @@ import com.charlezz.finalarchitecture.data.remote.PostDataSourceFactory
 
 class RemoteFragmentViewModel(val app: App, apiHelper:ApiHelper) : AndroidViewModel(app){
     val posts = LivePagedListBuilder(PostDataSourceFactory(apiHelper), 20)
+            .setInitialLoadKey(1)
             .build()
 }

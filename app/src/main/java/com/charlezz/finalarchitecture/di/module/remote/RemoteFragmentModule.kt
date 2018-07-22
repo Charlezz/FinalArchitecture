@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
+import android.util.Log
 import com.charlezz.finalarchitecture.App
 import com.charlezz.finalarchitecture.R
 import com.charlezz.finalarchitecture.data.remote.ApiHelper
@@ -19,7 +20,7 @@ import dagger.Provides
 
 @Module
 class RemoteFragmentModule {
-
+val TAG = RemoteFragmentModule::class.java.simpleName
     @Provides
     @FragmentScope
     fun provideFragmentRemoteBinding(activity: RemoteActivity): FragmentRemoteBinding =
@@ -36,7 +37,9 @@ class RemoteFragmentModule {
             ViewModelProviders.of(fragment, object : ViewModelProvider.Factory {
                 override fun <T : ViewModel?> create(modelClass: Class<T>): T {
                     return RemoteFragmentViewModel(app, apiHelper).apply {
-                        posts.observe(fragment, Observer {})
+                        posts.observe(fragment, Observer {
+                            Log.e(TAG,"${it?.size}")
+                        })
                     } as T
                 }
             }).get(RemoteFragmentViewModel::class.java)
