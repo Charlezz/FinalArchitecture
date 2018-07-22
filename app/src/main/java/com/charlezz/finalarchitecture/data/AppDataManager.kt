@@ -6,6 +6,8 @@ import com.charlezz.finalarchitecture.data.local.dao.DBHelper
 import com.charlezz.finalarchitecture.data.local.entity.Person
 import com.charlezz.finalarchitecture.data.pref.PreferencesHelper
 import com.charlezz.finalarchitecture.data.remote.ApiHelper
+import com.charlezz.finalarchitecture.data.remote.Post
+import retrofit2.Call
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -17,8 +19,7 @@ constructor(val context: Context,
             val preferencesHelper: PreferencesHelper,
             val apiHelper: ApiHelper)
     : DataManager {
-    override fun getPosts() {
-    }
+    override fun getPosts(start: Long, limit: Int): Call<List<Post>> = apiHelper.getPosts(start,limit)
 
     override fun getAllPersons(): DataSource.Factory<Int, Person> = dbHelper.getAllPersons()
 //    override fun fetchAllPhotos():Observable<Photo> {

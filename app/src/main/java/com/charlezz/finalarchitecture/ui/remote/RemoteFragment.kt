@@ -16,12 +16,16 @@ class RemoteFragment : DaggerFragment() {
     @Inject
     lateinit var viewmodel: RemoteFragmentViewModel
 
+    @Inject
+    lateinit var adapter: RemoteAdapter
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) = binding.root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.setLifecycleOwner(this)
         binding.viewmodel = viewmodel
+        binding.recyclerView.adapter = adapter
     }
 
 }

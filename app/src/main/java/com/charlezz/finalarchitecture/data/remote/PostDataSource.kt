@@ -2,20 +2,27 @@ package com.charlezz.finalarchitecture.data.remote
 
 import android.arch.paging.ItemKeyedDataSource
 
-class PostDataSource(val apiHelper: ApiHelper, postId: Long) : ItemKeyedDataSource<Long, Post>() {
+class PostDataSource(val apiHelper: ApiHelper) : ItemKeyedDataSource<Long,Post>(){
     override fun loadInitial(params: LoadInitialParams<Long>, callback: LoadInitialCallback<Post>) {
-        val loadsize = params.requestedLoadSize
-        apiHelper.getPost()
+        params.requestedInitialKey?.let {initialKey->
+            val call = apiHelper.getPosts(initialKey, params.requestedLoadSize)
+            call.execute().body()?.let {
+                callback.onResult(it)
+            }
+        }
     }
 
     override fun loadAfter(params: LoadParams<Long>, callback: LoadCallback<Post>) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        params.key?.let {key->
+            val call = apiHelper.getPosts(key, params.requestedLoadSize)
+            call.execute().body()?.let {
+                callback.onResult(it)
+            }
+        }
     }
 
     override fun loadBefore(params: LoadParams<Long>, callback: LoadCallback<Post>) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getKey(item: Post): Long = item.id
-
+    override fun getKey(item: Post): Long =item.id
 }

@@ -25,6 +25,7 @@ import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
@@ -75,7 +76,11 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideApiHelper():ApiHelper=Retrofit.Builder().baseUrl("http://www.google.com").build().create(ApiHelper::class.java)
+    fun provideApiHelper():ApiHelper=Retrofit.Builder()
+            .baseUrl("https://jsonplaceholder.typicode.com/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(ApiHelper::class.java)
 
 
     @Provides
