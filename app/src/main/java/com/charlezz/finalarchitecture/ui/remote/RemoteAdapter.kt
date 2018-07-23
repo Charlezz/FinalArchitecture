@@ -31,4 +31,5 @@ class RemoteAdapter : BaseAdapter<Post, ViewRemoteBinding, RemoteAdapter.RemoteV
         }
     }
 
+
 }
