@@ -24,8 +24,9 @@ class RemoteFragment : DaggerFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.setLifecycleOwner(this)
-        binding.viewmodel = viewmodel
         binding.recyclerView.adapter = adapter
+        binding.viewmodel = viewmodel
+
     }
 
 }
