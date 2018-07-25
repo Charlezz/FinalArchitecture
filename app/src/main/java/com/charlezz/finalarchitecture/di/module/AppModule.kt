@@ -7,31 +7,25 @@ import android.arch.persistence.room.RoomDatabase
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
-import android.util.Log
 import com.charlezz.finalarchitecture.App
 import com.charlezz.finalarchitecture.AppConstants
 import com.charlezz.finalarchitecture.data.AppDataManager
 import com.charlezz.finalarchitecture.data.DataManager
 import com.charlezz.finalarchitecture.data.local.AppDBHelper
 import com.charlezz.finalarchitecture.data.local.AppDatabase
-import com.charlezz.finalarchitecture.data.local.AppExecutors
-import com.charlezz.finalarchitecture.data.local.dao.DBHelper
+import com.charlezz.finalarchitecture.data.local.DBHelper
 import com.charlezz.finalarchitecture.data.pref.AppPreferencesHelper
 import com.charlezz.finalarchitecture.data.pref.PreferencesHelper
 import com.charlezz.finalarchitecture.data.remote.ApiHelper
-import com.charlezz.finalarchitecture.di.annotation.DatabaseInfo
-import com.charlezz.finalarchitecture.di.annotation.PreferenceInfo
-import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
 class AppModule {
-
-    val TAG = AppModule::class.java.simpleName
 
     @Provides
     @Singleton
@@ -47,7 +41,7 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideAppDatabase(context: Context, @DatabaseInfo dbName: String): AppDatabase {
+    fun provideAppDatabase(context: Context, @Named("my_db") dbName: String): AppDatabase {
         return Room
                 .inMemoryDatabaseBuilder(context,AppDatabase::class.java) // temporary
 //                .databaseBuilder(context, AppDatabase::class.java, dbName) // permanent
@@ -55,9 +49,7 @@ class AppModule {
                 .addCallback(object : RoomDatabase.Callback(){
                     override fun onCreate(db: SupportSQLiteDatabase) {
                         super.onCreate(db)
-                        Log.e(TAG,"onCreate")
-                        for( index in 0 until 100000){
-//                            Log.v(TAG,"index $index")
+                        for( index in 0 until 10000){
                             val cv = ContentValues()
                             cv.put("name", "Name$index")
                             cv.put("birth", "$index")
@@ -95,34 +87,17 @@ class AppModule {
         return appPreferencesHelper
     }
 
-//    @Provides
-//    @Singleton
-//    fun provideApiHelper(appApiHelper: AppApiHelper): ApiHelper {
-//        return appApiHelper
-//    }
-
     @Provides
-    @Singleton
-    fun provideGson(): Gson {
-        return Gson()
-    }
-
-    @Provides
-    @PreferenceInfo
+    @Named("my_pref")
     fun providePreferenceName(): String {
         return AppConstants.PREF_NAME
     }
 
     @Provides
-    @DatabaseInfo
+    @Named("my_db")
     fun provideDatabaseName(): String {
         return AppConstants.DB_NAME
     }
 
-    @Provides
-    @Singleton
-    fun provideAppExecutor(): AppExecutors {
-        return AppExecutors()
-    }
 
 }

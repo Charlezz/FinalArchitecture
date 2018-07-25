@@ -3,10 +3,12 @@ package com.charlezz.finalarchitecture.di.module
 import com.charlezz.finalarchitecture.di.annotation.ActivityScope
 import com.charlezz.finalarchitecture.di.module.local.PersonActivityModule
 import com.charlezz.finalarchitecture.di.module.main.MainActivityModule
-import com.charlezz.finalarchitecture.di.module.remote.RemoteActivityModule
+import com.charlezz.finalarchitecture.di.module.pref.PrefActivityModule
+import com.charlezz.finalarchitecture.di.module.remote.PostActivityModule
 import com.charlezz.finalarchitecture.ui.local.PersonActivity
 import com.charlezz.finalarchitecture.ui.main.MainActivity
-import com.charlezz.finalarchitecture.ui.remote.RemoteActivity
+import com.charlezz.finalarchitecture.ui.pref.PrefActivity
+import com.charlezz.finalarchitecture.ui.remote.PostActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -22,7 +24,11 @@ abstract class ActivityModule {
     abstract fun getPersonActivity(): PersonActivity
 
     @ActivityScope
-    @ContributesAndroidInjector(modules = [(RemoteActivityModule::class)])
-    abstract fun getRemoteActivity(): RemoteActivity
+    @ContributesAndroidInjector(modules = [(PostActivityModule::class)])
+    abstract fun getPostActivity(): PostActivity
+
+    @ActivityScope
+    @ContributesAndroidInjector(modules = [(PrefActivityModule::class)])
+    abstract fun getPrefActivity():PrefActivity
 
 }

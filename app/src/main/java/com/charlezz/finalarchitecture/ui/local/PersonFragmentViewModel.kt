@@ -1,4 +1,4 @@
-package com.charlezz.finalarchitecture.viewmodel
+package com.charlezz.finalarchitecture.ui.local
 
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
@@ -7,7 +7,7 @@ import android.arch.lifecycle.Transformations
 import android.arch.paging.LivePagedListBuilder
 import android.arch.paging.PagedList
 import com.charlezz.finalarchitecture.App
-import com.charlezz.finalarchitecture.data.local.entity.Person
+import com.charlezz.finalarchitecture.data.local.Person
 
 class PersonFragmentViewModel(application: Application) : AndroidViewModel(application) {
 

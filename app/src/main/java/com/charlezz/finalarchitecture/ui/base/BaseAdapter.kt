@@ -6,10 +6,9 @@ import android.databinding.ViewDataBinding
 import android.support.v7.util.DiffUtil
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.charlezz.finalarchitecture.BR
 
 abstract class BaseAdapter<T, VDB : ViewDataBinding, VH : BaseViewHolder<VDB>>
-(diffCallback: DiffUtil.ItemCallback<T>)
+(val bindingResId:Int, diffCallback: DiffUtil.ItemCallback<T>)
     : PagedListAdapter<T, VH>(diffCallback) {
     abstract fun getLayoutId():Int
 
@@ -25,7 +24,7 @@ abstract class BaseAdapter<T, VDB : ViewDataBinding, VH : BaseViewHolder<VDB>>
     }
 
     override fun onBindViewHolder(holder: VH, position: Int) {
-        holder.binding.setVariable(BR.data, getItem(position))
+        holder.binding.setVariable(bindingResId, getItem(position))
         holder.binding.executePendingBindings()
     }
 }

@@ -4,20 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.charlezz.finalarchitecture.databinding.FragmentRemoteBinding
-import com.charlezz.finalarchitecture.viewmodel.RemoteFragmentViewModel
+import com.charlezz.finalarchitecture.databinding.FragmentPostBinding
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-class RemoteFragment : DaggerFragment() {
+class PostFragment : DaggerFragment() {
     @Inject
-    lateinit var binding: FragmentRemoteBinding
+    lateinit var binding: FragmentPostBinding
 
     @Inject
-    lateinit var viewmodel: RemoteFragmentViewModel
+    lateinit var viewmodel: PostFragmentViewModel
 
     @Inject
-    lateinit var adapter: RemoteAdapter
+    lateinit var adapter: PostAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) = binding.root
 
