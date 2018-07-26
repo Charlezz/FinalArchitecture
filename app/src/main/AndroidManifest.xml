@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.charlezz.finalarchitecture"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.charlezz.finalarchitecture">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".App"
@@ -14,17 +15,15 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ui.main.MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.local.PersonActivity">
-        </activity>
-        <activity android:name=".ui.remote.PostActivity">
-        </activity>
-        <activity android:name=".ui.pref.PrefActivity">
-        </activity>
+        <activity android:name=".ui.local.PersonActivity"></activity>
+        <activity android:name=".ui.remote.PostActivity"></activity>
+        <activity android:name=".ui.pref.PrefActivity"></activity>
+        <activity android:name=".ui.photo.PhotoActivity"></activity>
     </application>
 
 </manifest>

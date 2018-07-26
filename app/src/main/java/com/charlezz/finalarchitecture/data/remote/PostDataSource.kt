@@ -24,5 +24,5 @@ class PostDataSource(val apiHelper: ApiHelper) : ItemKeyedDataSource<Long,Post>(
     override fun loadBefore(params: LoadParams<Long>, callback: LoadCallback<Post>) {
     }
 
-    override fun getKey(item: Post): Long =item.id
+    override fun getKey(item: Post): Long = item.id
 }

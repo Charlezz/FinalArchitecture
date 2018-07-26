@@ -3,10 +3,12 @@ package com.charlezz.finalarchitecture.di.module
 import com.charlezz.finalarchitecture.di.annotation.ActivityScope
 import com.charlezz.finalarchitecture.di.module.local.PersonActivityModule
 import com.charlezz.finalarchitecture.di.module.main.MainActivityModule
+import com.charlezz.finalarchitecture.di.module.photo.PhotoActivityModule
 import com.charlezz.finalarchitecture.di.module.pref.PrefActivityModule
 import com.charlezz.finalarchitecture.di.module.remote.PostActivityModule
 import com.charlezz.finalarchitecture.ui.local.PersonActivity
 import com.charlezz.finalarchitecture.ui.main.MainActivity
+import com.charlezz.finalarchitecture.ui.photo.PhotoActivity
 import com.charlezz.finalarchitecture.ui.pref.PrefActivity
 import com.charlezz.finalarchitecture.ui.remote.PostActivity
 import dagger.Module
@@ -30,5 +32,9 @@ abstract class ActivityModule {
     @ActivityScope
     @ContributesAndroidInjector(modules = [(PrefActivityModule::class)])
     abstract fun getPrefActivity():PrefActivity
+
+    @ActivityScope
+    @ContributesAndroidInjector(modules = [(PhotoActivityModule::class)])
+    abstract fun getPhotoActivity():PhotoActivity
 
 }

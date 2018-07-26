@@ -8,7 +8,7 @@ import javax.inject.Named
 import javax.inject.Singleton
 
 @Singleton
-class AppPreferencesHelper @Inject constructor(context: Context, @Named("my_pref") prefName: String) : PreferencesHelper {
+class PreferencesHelperImpl @Inject constructor(context: Context, @Named("my_pref") prefName: String) : PreferencesHelper {
 
     val KEY_DATA = "data"
 

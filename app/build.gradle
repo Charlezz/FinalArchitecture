@@ -62,7 +62,8 @@ dependencies {
     //Dagger2
     def daggerVer = "2.15"
     implementation "com.google.dagger:dagger-android:$daggerVer"
-    implementation "com.google.dagger:dagger-android-support:$daggerVer" // if you use the support libraries
+    implementation "com.google.dagger:dagger-android-support:$daggerVer"
+    // if you use the support libraries
     kapt "com.google.dagger:dagger-android-processor:$daggerVer"
     kapt "com.google.dagger:dagger-compiler:$daggerVer"
 

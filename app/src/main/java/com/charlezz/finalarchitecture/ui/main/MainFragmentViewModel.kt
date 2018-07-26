@@ -5,6 +5,7 @@ import android.arch.lifecycle.AndroidViewModel
 import android.content.Intent
 import com.charlezz.finalarchitecture.extension.start
 import com.charlezz.finalarchitecture.ui.local.PersonActivity
+import com.charlezz.finalarchitecture.ui.photo.PhotoActivity
 import com.charlezz.finalarchitecture.ui.pref.PrefActivity
 import com.charlezz.finalarchitecture.ui.remote.PostActivity
 
@@ -19,5 +20,8 @@ class MainFragmentViewModel(val app:Application) : AndroidViewModel(app){
     }
     fun startPrefActivity(){
         app.start(PrefActivity::class.java)
+    }
+    fun startPhotoActivity(){
+        app.start(PhotoActivity::class.java)
     }
 }

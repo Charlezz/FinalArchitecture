@@ -9,7 +9,7 @@ import com.charlezz.finalarchitecture.ui.base.BaseAdapter
 import com.charlezz.finalarchitecture.ui.base.BaseViewHolder
 
 class PostAdapter : BaseAdapter<Post, ViewPostBinding, PostAdapter.PostViewHolder>(BR.data,diffCallback){
-    override fun getLayoutId(): Int = R.layout.view_post
+    override fun getViewHolderLayoutId(): Int = R.layout.view_post
 
     inner class PostViewHolder(binding: ViewPostBinding) : BaseViewHolder<ViewPostBinding>(binding)
 
@@ -31,6 +31,4 @@ class PostAdapter : BaseAdapter<Post, ViewPostBinding, PostAdapter.PostViewHolde
             }
         }
     }
-
-
 }

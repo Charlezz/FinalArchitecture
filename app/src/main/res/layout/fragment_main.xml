@@ -39,7 +39,18 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_pref"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/btn_photo"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_photo"
+            android:text="Photo"
+            android:onClick="@{(v)->viewmodel.startPhotoActivity()}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_remote"
             app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
     </android.support.constraint.ConstraintLayout>

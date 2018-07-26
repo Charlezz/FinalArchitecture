@@ -11,7 +11,7 @@ import com.charlezz.finalarchitecture.ui.base.BaseViewHolder
 
 class PersonAdapter : BaseAdapter<Person, ViewPersonBinding, PersonAdapter.PersonViewHolder>(BR.data,diffCallback) {
 
-    override fun getLayoutId(): Int = R.layout.view_person
+    override fun getViewHolderLayoutId(): Int = R.layout.view_person
 
     companion object {
         val diffCallback = object : DiffUtil.ItemCallback<Person>() {

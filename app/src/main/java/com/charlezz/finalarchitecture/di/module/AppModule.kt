@@ -9,13 +9,15 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import com.charlezz.finalarchitecture.App
 import com.charlezz.finalarchitecture.AppConstants
-import com.charlezz.finalarchitecture.data.AppDataManager
 import com.charlezz.finalarchitecture.data.DataManager
-import com.charlezz.finalarchitecture.data.local.AppDBHelper
+import com.charlezz.finalarchitecture.data.DataManagerImpl
 import com.charlezz.finalarchitecture.data.local.AppDatabase
 import com.charlezz.finalarchitecture.data.local.DBHelper
-import com.charlezz.finalarchitecture.data.pref.AppPreferencesHelper
+import com.charlezz.finalarchitecture.data.local.DBHelperImpl
+import com.charlezz.finalarchitecture.data.photo.PhotoHelper
+import com.charlezz.finalarchitecture.data.photo.PhotoHelperImpl
 import com.charlezz.finalarchitecture.data.pref.PreferencesHelper
+import com.charlezz.finalarchitecture.data.pref.PreferencesHelperImpl
 import com.charlezz.finalarchitecture.data.remote.ApiHelper
 import dagger.Module
 import dagger.Provides
@@ -62,8 +64,8 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideDBHelper(appDBHelper: AppDBHelper): DBHelper {
-        return appDBHelper
+    fun provideDBHelper(DBHelperImpl: DBHelperImpl): DBHelper {
+        return DBHelperImpl
     }
 
     @Provides
@@ -77,15 +79,16 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideDataManager(appDataManager: AppDataManager): DataManager {
-        return appDataManager
+    fun provideDataManager(dataManagerImpl: DataManagerImpl): DataManager {
+        return dataManagerImpl
     }
 
     @Provides
     @Singleton
-    fun providePreferencesHelper(appPreferencesHelper: AppPreferencesHelper): PreferencesHelper {
-        return appPreferencesHelper
+    fun providePreferencesHelper(preferencesHelperImpl: PreferencesHelperImpl): PreferencesHelper {
+        return preferencesHelperImpl
     }
+
 
     @Provides
     @Named("my_pref")
@@ -99,5 +102,10 @@ class AppModule {
         return AppConstants.DB_NAME
     }
 
+    @Provides
+    @Singleton
+    fun providePhotoHelper(context:Context):PhotoHelper{
+        return PhotoHelperImpl(context)
+    }
 
 }
