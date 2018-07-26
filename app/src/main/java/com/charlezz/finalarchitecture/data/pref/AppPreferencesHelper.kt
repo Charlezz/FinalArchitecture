@@ -1,19 +1,25 @@
 package com.charlezz.finalarchitecture.data.pref
 
+import android.arch.lifecycle.MutableLiveData
 import android.content.Context
 import android.content.SharedPreferences
-import com.charlezz.finalarchitecture.di.annotation.PreferenceInfo
 import javax.inject.Inject
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Singleton
-class AppPreferencesHelper @Inject constructor(context: Context, @PreferenceInfo prefName: String) : PreferencesHelper {
+class AppPreferencesHelper @Inject constructor(context: Context, @Named("my_pref") prefName: String) : PreferencesHelper {
 
-    val KEY_CARDS_VERSION = "Cards version"
+    val KEY_DATA = "data"
 
     val preference: SharedPreferences = context.getSharedPreferences(prefName, Context.MODE_PRIVATE) as SharedPreferences
     val editor: SharedPreferences.Editor = preference.edit()
 
-//    override fun setCurrentCardsVersion(version: Int) = editor.putInt(KEY_CARDS_VERSION, version).commit()
-//    override fun getCurrentCardsVersion() = preference.getInt(KEY_CARDS_VERSION, 0)
+
+    private val data = MutableLiveData<String>()
+
+    override fun getData(): String = preference.getString(KEY_DATA,"")
+
+    override fun setData(data: String): Boolean = editor.putString(KEY_DATA, data).commit()
+
 }

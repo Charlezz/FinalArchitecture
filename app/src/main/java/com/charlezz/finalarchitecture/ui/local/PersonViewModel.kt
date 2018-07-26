@@ -1,4 +1,4 @@
-package com.charlezz.finalarchitecture.viewmodel
+package com.charlezz.finalarchitecture.ui.local
 
 import android.arch.lifecycle.ViewModel
 

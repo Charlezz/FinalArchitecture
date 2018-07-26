@@ -4,7 +4,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.charlezz.finalarchitecture.viewmodel.MainFragmentViewModel" />
+            type="com.charlezz.finalarchitecture.ui.main.MainFragmentViewModel" />
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -18,15 +18,25 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:onClick="@{(v)->viewmodel.startPersonActivity()}"
-            app:layout_constraintBottom_toTopOf="@+id/btn_remote"
+            app:layout_constraintBottom_toTopOf="@+id/btn_pref"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_pref"
+            android:text="Shared Preference"
+            app:layout_constraintTop_toBottomOf="@+id/btn_local"
+            app:layout_constraintBottom_toTopOf="@+id/btn_remote"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:onClick="@{(v)->viewmodel.startPrefActivity()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
         <Button
             android:id="@+id/btn_remote"
             android:layout_width="wrap_content"
             android:text="Remote Data"
-            android:onClick="@{(v)->viewmodel.startRemoteActivity()}"
-            app:layout_constraintTop_toBottomOf="@+id/btn_local"
+            android:onClick="@{(v)->viewmodel.startPostActivity()}"
+            app:layout_constraintTop_toBottomOf="@+id/btn_pref"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -7,7 +7,7 @@
         <import type="android.view.View"/>
         <variable
             name="viewmodel"
-            type="com.charlezz.finalarchitecture.viewmodel.PersonFragmentViewModel" />
+            type="com.charlezz.finalarchitecture.ui.local.PersonFragmentViewModel" />
     </data>
 
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"

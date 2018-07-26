@@ -5,7 +5,7 @@
 
         <variable
             name="data"
-            type="com.charlezz.finalarchitecture.data.local.entity.Person" />
+            type="com.charlezz.finalarchitecture.data.local.Person" />
     </data>
 
     <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"

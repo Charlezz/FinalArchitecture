@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.charlezz.finalarchitecture.databinding.FragmentPersonBinding
-import com.charlezz.finalarchitecture.viewmodel.PersonFragmentViewModel
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 

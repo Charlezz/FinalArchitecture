@@ -9,7 +9,7 @@ import com.charlezz.finalarchitecture.di.annotation.FragmentScope
 import com.charlezz.finalarchitecture.ui.local.PersonActivity
 import com.charlezz.finalarchitecture.ui.local.PersonAdapter
 import com.charlezz.finalarchitecture.ui.local.PersonFragment
-import com.charlezz.finalarchitecture.viewmodel.PersonFragmentViewModel
+import com.charlezz.finalarchitecture.ui.local.PersonFragmentViewModel
 import dagger.Module
 import dagger.Provides
 

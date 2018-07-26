@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.charlezz.finalarchitecture.data.remote.Post" />
+    </data>
+
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/id_text"
+                android:text="ID : "
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@+id/id_text"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/user_id"
+                android:text="@{String.valueOf(data.id), default = id}"
+                />
+            <TextView
+                android:id="@+id/user_id_text"
+                android:layout_width="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id"
+                android:text="USER_ID : "
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/user_id"
+                app:layout_constraintLeft_toRightOf="@+id/user_id_text"
+                app:layout_constraintTop_toBottomOf="@+id/id"
+                app:layout_constraintBottom_toTopOf="@+id/title"
+                android:text="@{String.valueOf(data.userId), default = Charlezz}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Title : "
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_id"/>
+            <TextView
+                android:id="@+id/title"
+                app:layout_constraintLeft_toRightOf="@+id/title_text"
+                app:layout_constraintTop_toBottomOf="@+id/user_id"
+                app:layout_constraintBottom_toTopOf="@+id/body"
+                android:text="@{data.title, default = name}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/body_text"
+                android:text="Body : "
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{data.body, default = body}"
+                android:textColor="@android:color/darker_gray"
+                app:layout_constraintLeft_toRightOf="@+id/body_text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/body_text"/>
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+</layout>

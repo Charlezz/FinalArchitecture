@@ -1,14 +1,15 @@
 package com.charlezz.finalarchitecture.ui.local
 
 import android.support.v7.util.DiffUtil
+import com.charlezz.finalarchitecture.BR
 import com.charlezz.finalarchitecture.R
-import com.charlezz.finalarchitecture.data.local.entity.Person
+import com.charlezz.finalarchitecture.data.local.Person
 import com.charlezz.finalarchitecture.databinding.ViewPersonBinding
 import com.charlezz.finalarchitecture.ui.base.BaseAdapter
 import com.charlezz.finalarchitecture.ui.base.BaseViewHolder
 
 
-class PersonAdapter : BaseAdapter<Person, ViewPersonBinding, PersonAdapter.PersonViewHolder>(diffCallback) {
+class PersonAdapter : BaseAdapter<Person, ViewPersonBinding, PersonAdapter.PersonViewHolder>(BR.data,diffCallback) {
 
     override fun getLayoutId(): Int = R.layout.view_person
 

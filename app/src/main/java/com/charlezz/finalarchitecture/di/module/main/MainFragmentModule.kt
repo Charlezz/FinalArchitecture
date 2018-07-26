@@ -7,7 +7,7 @@ import com.charlezz.finalarchitecture.databinding.FragmentMainBinding
 import com.charlezz.finalarchitecture.di.annotation.FragmentScope
 import com.charlezz.finalarchitecture.ui.main.MainActivity
 import com.charlezz.finalarchitecture.ui.main.MainFragment
-import com.charlezz.finalarchitecture.viewmodel.MainFragmentViewModel
+import com.charlezz.finalarchitecture.ui.main.MainFragmentViewModel
 import dagger.Module
 import dagger.Provides
 

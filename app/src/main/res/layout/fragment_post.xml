@@ -3,7 +3,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.charlezz.finalarchitecture.viewmodel.RemoteFragmentViewModel"/>
+            type="com.charlezz.finalarchitecture.ui.remote.PostFragmentViewModel"/>
     </data>
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
