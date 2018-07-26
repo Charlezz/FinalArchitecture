@@ -8,17 +8,17 @@ import com.charlezz.finalarchitecture.databinding.FragmentPhotoBinding
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-class PhotoFragment:DaggerFragment(){
+class PhotoFragment : DaggerFragment() {
     @Inject
-    lateinit var binding:FragmentPhotoBinding
+    lateinit var binding: FragmentPhotoBinding
 
     @Inject
-    lateinit var viewModel:PhotoFragmentViewModel
+    lateinit var viewModel: PhotoFragmentViewModel
 
     @Inject
-    lateinit var adapter:PhotoAdapter
+    lateinit var adapter: PhotoAdapter
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?)= binding.root
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) = binding.root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

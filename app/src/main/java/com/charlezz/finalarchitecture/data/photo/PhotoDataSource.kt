@@ -1,25 +1,10 @@
 package com.charlezz.finalarchitecture.data.photo
 
 import android.arch.paging.PositionalDataSource
-import android.content.Context
 import android.database.Cursor
 import android.provider.MediaStore
 
-class PhotoDataSource(val context: Context) : PositionalDataSource<Photo>() {
-    val TAG = PhotoDataSource::class.java.simpleName
-
-    private var cursor: Cursor
-
-    init {
-        val uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-        val projection = null
-        val selection = null
-        val selectionArgs = null
-        val sortOrder = null
-        //skip Paging Query, it's too annoying. It takes not a while by the way.
-        //귀찮아서 쿼리 페이징 하는건 패스. 어짜피 얼마 걸리지도 않음.
-        cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, sortOrder)
-    }
+class PhotoDataSource(private val cursor: Cursor) : PositionalDataSource<Photo>() {
 
     override fun loadInitial(params: LoadInitialParams, callback: LoadInitialCallback<Photo>) {
         val totalCount = cursor.count

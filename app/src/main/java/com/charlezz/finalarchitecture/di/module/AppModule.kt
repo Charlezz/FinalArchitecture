@@ -104,8 +104,7 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun providePhotoHelper(context:Context):PhotoHelper{
-        return PhotoHelperImpl(context)
+    fun providePhotoHelper():PhotoHelper{
+        return PhotoHelperImpl()
     }
-
 }

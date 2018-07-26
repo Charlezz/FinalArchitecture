@@ -1,13 +1,17 @@
 package com.charlezz.finalarchitecture.ui.photo
 
 import android.arch.lifecycle.ViewModel
-import com.charlezz.finalarchitecture.data.DataManager
+import android.database.Cursor
+import com.charlezz.finalarchitecture.data.photo.PhotoHelper
 
-class PhotoFragmentViewModel(val dataManager:DataManager):ViewModel(){
-    val photos =  dataManager.fetchPhotos()
+class PhotoFragmentViewModel(private val cursor: Cursor, photoHelper: PhotoHelper):ViewModel(){
+
+    val photos = photoHelper.fetchPhotos(cursor)
 
     override fun onCleared() {
         super.onCleared()
-        dataManager.releaseCursor()
+        if(!cursor.isClosed){
+            cursor.close()
+        }
     }
 }

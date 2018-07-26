@@ -1,7 +1,6 @@
 package com.charlezz.finalarchitecture.data
 
 import com.charlezz.finalarchitecture.data.local.DBHelper
-import com.charlezz.finalarchitecture.data.photo.PhotoHelper
 import com.charlezz.finalarchitecture.data.pref.PreferencesHelper
 import com.charlezz.finalarchitecture.data.remote.ApiHelper
 import javax.inject.Inject
@@ -12,8 +11,7 @@ class DataManagerImpl
 @Inject
 constructor(private val dbHelper: DBHelper,
             private val preferencesHelper: PreferencesHelper,
-            private val apiHelper: ApiHelper,
-            private val photoHelper: PhotoHelper)
+            private val apiHelper: ApiHelper)
     : DataManager {
 
     override fun getData() = preferencesHelper.getData()
@@ -23,7 +21,4 @@ constructor(private val dbHelper: DBHelper,
     override fun getPosts(start: Long, limit: Int) = apiHelper.getPosts(start, limit)
 
     override fun getAllPersons() = dbHelper.getAllPersons()
-
-    override fun fetchPhotos() = photoHelper.fetchPhotos()
-
 }
