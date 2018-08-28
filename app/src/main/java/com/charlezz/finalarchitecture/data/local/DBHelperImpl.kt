@@ -6,7 +6,7 @@ import javax.inject.Singleton
 
 @Singleton
 class DBHelperImpl @Inject constructor(private val appDatabase: AppDatabase): DBHelper {
-    override fun getAllPersons(): DataSource.Factory<Int, Person> {
-        return appDatabase.dao().getAllPersons()
+    override fun getAllPersonsSource(): DataSource.Factory<Int, Person> {
+        return appDatabase.dao().getAllPersonsSource()
     }
 }

@@ -13,17 +13,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.main.MainActivity">
+        <activity android:name=".feature.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.local.PersonActivity"></activity>
-        <activity android:name=".ui.remote.PostActivity"></activity>
-        <activity android:name=".ui.pref.PrefActivity"></activity>
-        <activity android:name=".ui.photo.PhotoActivity"></activity>
+        <activity android:name=".feature.local.PersonActivity"></activity>
+        <activity android:name=".feature.remote.PostActivity"></activity>
+        <activity android:name=".feature.pref.PrefActivity"></activity>
+        <activity android:name=".feature.photo.PhotoActivity"></activity>
     </application>
 
 </manifest>

@@ -5,7 +5,7 @@ import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
 import android.util.Log
 import com.charlezz.finalarchitecture.data.photo.Photo
-import com.charlezz.finalarchitecture.ui.TAG
+import com.charlezz.finalarchitecture.feature.TAG
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith

@@ -8,5 +8,5 @@ import android.arch.persistence.room.Query
 @Dao
 interface DBHelper {
     @Query("SELECT * FROM person")
-    fun getAllPersons():DataSource.Factory<Int, Person>
+    fun getAllPersonsSource():DataSource.Factory<Int, Person>
 }

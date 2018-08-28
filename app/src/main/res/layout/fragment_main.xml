@@ -4,7 +4,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.charlezz.finalarchitecture.ui.main.MainFragmentViewModel" />
+            type="com.charlezz.finalarchitecture.feature.main.MainFragmentViewModel" />
     </data>
 
     <android.support.constraint.ConstraintLayout

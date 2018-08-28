@@ -8,13 +8,13 @@
 
         <variable
             name="viewmodel"
-            type="com.charlezz.finalarchitecture.ui.pref.PrefViewModel"/>
+            type="com.charlezz.finalarchitecture.feature.pref.PrefViewModel"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.pref.PrefActivity">
+        tools:context=".feature.pref.PrefActivity">
 
         <TextView
             android:id="@+id/data_text"

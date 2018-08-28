@@ -6,12 +6,12 @@
     <data>
         <variable
             name="viewModel"
-            type="com.charlezz.finalarchitecture.ui.photo.PhotoActivityViewModel"/>
+            type="com.charlezz.finalarchitecture.feature.photo.PhotoActivityViewModel"/>
     </data>
         <android.support.constraint.ConstraintLayout 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".ui.photo.PhotoActivity">
+            tools:context=".feature.photo.PhotoActivity">
             <FrameLayout
                 android:id="@+id/container"
                 android:layout_width="0dp"
