@@ -1,0 +1,9 @@
+<component name="CopyrightManager">
+  <copyright>
+    <option name="notice" value="@(#)&amp;#36;file.fileName &amp;#36;version &amp;#36;file.lastModified.format(&quot;yyyy. MM. dd&quot;)&#10;&#10;Copyright &amp;#36;file.lastModified.year NHN Corp. All rights Reserved. &#10;NHN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms." />
+    <option name="keyword" value="Copyright" />
+    <option name="allowReplaceKeyword" value="" />
+    <option name="myName" value="NHN" />
+    <option name="myLocal" value="true" />
+  </copyright>
+</component>
