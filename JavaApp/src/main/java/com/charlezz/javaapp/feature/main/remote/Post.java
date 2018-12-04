@@ -1,4 +1,4 @@
-package com.charlezz.javaapp.data.remote;
+package com.charlezz.javaapp.feature.main.remote;
 
 import android.os.Parcel;
 import android.os.Parcelable;

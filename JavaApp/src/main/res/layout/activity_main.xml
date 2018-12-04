@@ -2,54 +2,29 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
-            name="viewmodel"
-            type="com.charlezz.javaapp.feature.main.MainViewModel"/>
+                name="viewmodel"
+                type="com.charlezz.javaapp.feature.main.MainViewModel"/>
     </data>
     <android.support.constraint.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <Button
-            android:id="@+id/btn_local"
-            android:text="Local Data"
-            android:visibility="gone"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/btn_pref"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <Button
-            android:id="@+id/btn_pref"
-            android:text="Shared Preference"
-            android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@+id/btn_local"
-            app:layout_constraintBottom_toTopOf="@+id/btn_remote"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:id="@+id/btn_remote"
-            android:layout_width="wrap_content"
-            android:text="Remote Data"
-            android:onClick="@{(v)->viewmodel.navigator.onRemoteClick()}"
-            app:layout_constraintTop_toBottomOf="@+id/btn_pref"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/btn_photo"
-            android:layout_height="wrap_content" />
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <android.support.design.widget.TabLayout
+                android:id="@+id/tab_layout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
 
-        <Button
-            android:id="@+id/btn_photo"
-            android:text="Photo"
-            android:visibility="gone"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_remote"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <android.support.v4.view.ViewPager
+                android:id="@+id/view_pager"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@+id/tab_layout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
 
     </android.support.constraint.ConstraintLayout>
 </layout>

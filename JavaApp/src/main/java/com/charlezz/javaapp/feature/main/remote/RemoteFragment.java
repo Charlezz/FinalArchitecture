@@ -1,4 +1,6 @@
-package com.charlezz.javaapp.feature.remote;
+package com.charlezz.javaapp.feature.main.remote;
+
+import javax.inject.Inject;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,17 +9,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import javax.inject.Inject;
+import com.charlezz.javaapp.databinding.FragmentRemoteBinding;
 
 import dagger.android.support.DaggerFragment;
 
-public class PostFragment extends DaggerFragment {
+public class RemoteFragment extends DaggerFragment {
 
     @Inject
-    FragmentPostBinding binding;
+    FragmentRemoteBinding binding;
 
     @Inject
-    PostViewModel sharedViewModel;
+    RemoteViewModel sharedViewModel;
+
+    @Inject
+    RemoteAdapter adapter;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
