@@ -8,5 +8,5 @@ import retrofit2.http.Query;
 
 public interface PostService {
     @GET("posts")
-    Call<List<Post>> getPosts(@Query("_start") long start, @Query("_limit") int limit);
+    Call<List<Post>> getPosts(@Query("_page") int page);
 }

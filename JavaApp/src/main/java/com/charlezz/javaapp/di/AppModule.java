@@ -10,7 +10,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module
-public abstract class AppModule {
+public class AppModule {
 
     @Provides
     @Singleton

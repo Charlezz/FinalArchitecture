@@ -1,11 +1,28 @@
 package com.charlezz.javaapp.feature.main.remote;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;
+import android.arch.paging.LivePagedListBuilder;
+import android.arch.paging.PagedList;
 
 public class RemoteViewModel extends ViewModel {
 
-    public interface Repository {
-        void getPosts();
+    private Navigator navigator;
+    private PostDataSourceFactory factory;
+    private LiveData<PagedList<Post>> posts;
+
+    public RemoteViewModel(PostDataSourceFactory factory,Navigator navigator){
+        this.navigator = navigator;
+        this.factory = factory;
+    }
+
+    public void loadData(){
+        posts = new LivePagedListBuilder<>(factory, 1)
+                .build();
+    }
+
+    public LiveData<PagedList<Post>> getPosts(){
+        return posts;
     }
 
     public interface Navigator{

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
     <data>
-        <variable name="viewmodel" type="com.charlezz.javaapp.feature.main.remote.RemoteViewModel"/>
+        <variable name="viewmodel" type="com.charlezz.javaapp.feature.main.remote.Post"/>
     </data>
     <android.support.constraint.ConstraintLayout
             xmlns:android="http://schemas.android.com/apk/res/android"

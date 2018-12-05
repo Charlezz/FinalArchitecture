@@ -1,7 +1,10 @@
 package com.charlezz.javaapp.feature.main.remote;
 
+import android.arch.lifecycle.ViewModel;
+import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 
 import com.charlezz.javaapp.R;
@@ -21,8 +24,29 @@ public class RemoteModule {
 
     @Provides
     @FragmentScope
-    RemoteViewModel provideRemoteViewModel(RemoteFragment fragment){
-        return ViewModelProviders.of(fragment).get(RemoteViewModel.class);
+    RemoteViewModel provideRemoteViewModel(RemoteFragment fragment, ViewModelProvider.Factory factory){
+        return ViewModelProviders.of(fragment, factory).get(RemoteViewModel.class);
+    }
+
+    @Provides
+    @FragmentScope
+    ViewModelProvider.Factory provideViewModelFactory(final PostDataSourceFactory factory, final RemoteViewModel.Navigator navigator){
+        return new ViewModelProvider.Factory() {
+            @NonNull
+            @Override
+            public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
+                return (T) new RemoteViewModel(factory, navigator);
+            }
+        };
+    }
+
+
+
+    @Provides
+    @FragmentScope
+    RemoteViewModel.Navigator provideNavigator(){
+        return new RemoteViewModel.Navigator() {
+        };
     }
 
     @Provides
@@ -30,4 +54,11 @@ public class RemoteModule {
     RemoteAdapter provideAdapter(){
         return new RemoteAdapter();
     }
+
+    @Provides
+    @FragmentScope
+    PostDataSourceFactory provideDataSourceFactory(PostService postService){
+        return new PostDataSourceFactory(postService);
+    }
+
 }
