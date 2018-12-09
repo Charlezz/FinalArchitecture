@@ -17,7 +17,7 @@ public class RemoteViewModel extends ViewModel {
     }
 
     public void loadData(){
-        posts = new LivePagedListBuilder<>(factory, 1)
+        posts = new LivePagedListBuilder<>(factory, Integer.MAX_VALUE)
                 .build();
     }
 

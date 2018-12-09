@@ -32,12 +32,12 @@ public class RemoteAdapter extends BaseAdapter<Post, RemoteViewHolder> {
     @NonNull
     @Override
     protected int getLayoutResId(int viewType) {
-        return R.layout.view_remote;
+        return R.layout.view_post;
     }
 
     @NonNull
     @Override
     protected int getViewModelId(int viewType) {
-        return BR.viewmodel;
+        return BR.post;
     }
 }
