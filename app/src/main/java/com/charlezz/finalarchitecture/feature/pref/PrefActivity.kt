@@ -15,7 +15,7 @@ class PrefActivity : DaggerAppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.viewmodel = viewmodel
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
         binding.save.setOnClickListener {
             viewmodel.setData(binding.editText.text.toString())
         }

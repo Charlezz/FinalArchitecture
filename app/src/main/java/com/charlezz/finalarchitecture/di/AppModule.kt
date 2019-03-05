@@ -9,11 +9,10 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import com.charlezz.finalarchitecture.App
 import com.charlezz.finalarchitecture.AppConstants
-import com.charlezz.finalarchitecture.data.DataManager
-import com.charlezz.finalarchitecture.data.DataManagerImpl
-import com.charlezz.finalarchitecture.data.local.AppDatabase
 import com.charlezz.finalarchitecture.data.local.DBHelper
 import com.charlezz.finalarchitecture.data.local.DBHelperImpl
+import com.charlezz.finalarchitecture.data.local.AppDatabase
+import com.charlezz.finalarchitecture.data.local.PersonDao
 import com.charlezz.finalarchitecture.data.photo.PhotoHelper
 import com.charlezz.finalarchitecture.data.photo.PhotoHelperImpl
 import com.charlezz.finalarchitecture.data.pref.PreferencesHelper
@@ -23,7 +22,6 @@ import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -43,10 +41,10 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideAppDatabase(context: Context, @Named("my_db") dbName: String): AppDatabase {
+    fun provideAppDatabase(context: Context): AppDatabase {
         return Room
                 .inMemoryDatabaseBuilder(context,AppDatabase::class.java) // temporary
-//                .databaseBuilder(context, AppDatabase::class.java, dbName) // permanent
+//                .databaseBuilder(context, AppDatabase::class.java, AppConstants.DB_NAME) // permanent
                 .fallbackToDestructiveMigration()
                 .addCallback(object : RoomDatabase.Callback(){
                     override fun onCreate(db: SupportSQLiteDatabase) {
@@ -64,42 +62,28 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideDBHelper(DBHelperImpl: DBHelperImpl): DBHelper {
-        return DBHelperImpl
-    }
-
-    @Provides
-    @Singleton
-    fun provideApiHelper():ApiHelper=Retrofit.Builder()
+    fun provideApiHelper():ApiHelper = Retrofit.Builder()
             .baseUrl("https://jsonplaceholder.typicode.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiHelper::class.java)
 
+    @Provides
+    @Singleton
+    fun providePersonDao(appDatabase:AppDatabase): PersonDao {
+        return appDatabase.dao()
+    }
 
     @Provides
     @Singleton
-    fun provideDataManager(dataManagerImpl: DataManagerImpl): DataManager {
-        return dataManagerImpl
+    fun provideDataManager(personDao:PersonDao): DBHelper {
+        return DBHelperImpl(personDao)
     }
 
     @Provides
     @Singleton
-    fun providePreferencesHelper(preferencesHelperImpl: PreferencesHelperImpl): PreferencesHelper {
-        return preferencesHelperImpl
-    }
-
-
-    @Provides
-    @Named("my_pref")
-    fun providePreferenceName(): String {
-        return AppConstants.PREF_NAME
-    }
-
-    @Provides
-    @Named("my_db")
-    fun provideDatabaseName(): String {
-        return AppConstants.DB_NAME
+    fun providePreferencesHelper(context:Context): PreferencesHelper {
+        return PreferencesHelperImpl(context, AppConstants.PREF_NAME)
     }
 
     @Provides

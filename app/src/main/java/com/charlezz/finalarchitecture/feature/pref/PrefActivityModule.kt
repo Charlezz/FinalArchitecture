@@ -1,17 +1,17 @@
 package com.charlezz.finalarchitecture.feature.pref
 
-import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
-import com.charlezz.finalarchitecture.App
 import com.charlezz.finalarchitecture.R
+import com.charlezz.finalarchitecture.data.pref.PreferencesHelper
 import com.charlezz.finalarchitecture.databinding.ActivityPrefBinding
 import com.charlezz.finalarchitecture.di.ActivityScope
 import dagger.Module
 import dagger.Provides
 
+@Suppress("UNCHECKED_CAST")
 @Module
 abstract class PrefActivityModule{
     @Module
@@ -24,15 +24,13 @@ abstract class PrefActivityModule{
         @JvmStatic
         @Provides
         @ActivityScope
-        fun providePrefViewModel(app: App, activity:PrefActivity ):PrefViewModel {
-            return ViewModelProviders.of(activity,object:ViewModelProvider.Factory{
+        fun providePrefViewModel(activity:PrefActivity , prefHelper: PreferencesHelper):PrefViewModel {
+            return ViewModelProviders.of(activity, object:ViewModelProvider.Factory{
                 override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-                    return PrefViewModel(app) as T
+                    return PrefViewModel(prefHelper) as T
                 }
 
-            }).get(PrefViewModel::class.java).apply {
-                data.observe(activity, Observer {  })
-            }
+            }).get(PrefViewModel::class.java)
         }
     }
 }

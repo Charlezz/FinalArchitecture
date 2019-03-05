@@ -1,12 +1,8 @@
 package com.charlezz.finalarchitecture.data.local
 
-import android.arch.paging.DataSource
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Query
+import android.arch.lifecycle.LiveData
+import android.arch.paging.PagedList
 
-
-@Dao
-interface DBHelper {
-    @Query("SELECT * FROM person")
-    fun getAllPersonsSource():DataSource.Factory<Int, Person>
+interface DBHelper{
+    fun getPersons():LiveData<PagedList<Person>>
 }

@@ -14,18 +14,8 @@ class PhotoAdapter : BaseAdapter<Photo, ViewPhotoBinding, PhotoAdapter.PhotoView
 
     companion object {
         val diffCallback = object : DiffUtil.ItemCallback<Photo>() {
-            override fun areContentsTheSame(oldItem: Photo?, newItem: Photo?): Boolean {
-                return if (oldItem != null && newItem != null){
-                    oldItem.name == newItem.name &&
-                            oldItem.path == newItem.path
-                } else {
-                    false
-                }
-            }
-
-            override fun areItemsTheSame(oldItem: Photo?, newItem: Photo?): Boolean {
-                return oldItem == newItem
-            }
+            override fun areContentsTheSame(oldItem: Photo, newItem: Photo)= oldItem.name == newItem.name && oldItem.path == newItem.path
+            override fun areItemsTheSame(oldItem: Photo, newItem: Photo) = oldItem == newItem
         }
     }
 

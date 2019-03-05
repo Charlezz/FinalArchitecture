@@ -2,16 +2,14 @@ package com.charlezz.finalarchitecture
 
 import android.content.Context
 import android.support.multidex.MultiDex
-import com.charlezz.finalarchitecture.data.DataManager
 import com.charlezz.finalarchitecture.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
-import javax.inject.Inject
 
 class App : DaggerApplication() {
 
-    @Inject
-    lateinit var dataManager:DataManager
+//    @Inject
+//    lateinit var dataManager:DBHelper
 
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {

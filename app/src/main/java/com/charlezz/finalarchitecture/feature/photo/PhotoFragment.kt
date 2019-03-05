@@ -22,7 +22,7 @@ class PhotoFragment : DaggerFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
         binding.recyclerView.adapter = adapter
         binding.viewModel = viewModel
     }

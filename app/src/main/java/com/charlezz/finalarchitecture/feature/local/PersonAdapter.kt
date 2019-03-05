@@ -1,5 +1,6 @@
 package com.charlezz.finalarchitecture.feature.local
 
+import android.support.annotation.NonNull
 import android.support.v7.util.DiffUtil
 import com.charlezz.finalarchitecture.BR
 import com.charlezz.finalarchitecture.R
@@ -15,17 +16,13 @@ class PersonAdapter : BaseAdapter<Person, ViewPersonBinding, PersonAdapter.Perso
 
     companion object {
         val diffCallback = object : DiffUtil.ItemCallback<Person>() {
-            override fun areContentsTheSame(oldItem: Person?, newItem: Person?): Boolean {
-                return if (oldItem != null && newItem != null){
-                    oldItem.id == newItem.id &&
+            override fun areContentsTheSame(@NonNull oldItem: Person, @NonNull newItem: Person): Boolean {
+                return oldItem.id == newItem.id &&
                             oldItem.birth == newItem.birth &&
                             oldItem.name == newItem.name
-                } else {
-                    false
-                }
             }
 
-            override fun areItemsTheSame(oldItem: Person?, newItem: Person?): Boolean {
+            override fun areItemsTheSame(oldItem: Person, newItem: Person): Boolean {
                 return oldItem == newItem
             }
         }
