@@ -1,5 +1,5 @@
 # Final Architecture
-# MVVM + Databinding + AAC ViewModel + LiveData + Dagger2 + Retrofit + Room + Photo Query
+# MVVM + Databinding + Dagger2 + Paging + AAC ViewModel + LiveData + Retrofit + Room + Photo Query
 # Kotlin Version + Java Version
 
 
