@@ -1,9 +1,9 @@
-package com.charlezz.javaapp.feature.main.remote;
+package com.charlezz.javaapp.feature.remote;
 
 import android.support.annotation.NonNull;
 
 import com.charlezz.javaapp.databinding.ViewPostBinding;
-import com.charlezz.javaapp.feature.main.base.BaseViewHolder;
+import com.charlezz.javaapp.feature.base.BaseViewHolder;
 
 public class RemoteViewHolder extends BaseViewHolder<ViewPostBinding> {
     public RemoteViewHolder(@NonNull ViewPostBinding binding) {

@@ -1,4 +1,4 @@
-package com.charlezz.javaapp.feature.main.base;
+package com.charlezz.javaapp.feature.base;
 
 import android.databinding.ViewDataBinding;
 import android.support.annotation.NonNull;

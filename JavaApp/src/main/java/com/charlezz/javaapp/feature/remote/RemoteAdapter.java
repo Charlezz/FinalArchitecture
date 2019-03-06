@@ -1,11 +1,11 @@
-package com.charlezz.javaapp.feature.main.remote;
+package com.charlezz.javaapp.feature.remote;
 
 import android.support.annotation.NonNull;
 import android.support.v7.util.DiffUtil;
 
 import com.charlezz.javaapp.BR;
 import com.charlezz.javaapp.R;
-import com.charlezz.javaapp.feature.main.base.BaseAdapter;
+import com.charlezz.javaapp.feature.base.BaseAdapter;
 
 public class RemoteAdapter extends BaseAdapter<Post, RemoteViewHolder> {
 

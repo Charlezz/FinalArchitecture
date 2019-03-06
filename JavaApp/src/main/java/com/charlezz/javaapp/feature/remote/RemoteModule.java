@@ -1,4 +1,4 @@
-package com.charlezz.javaapp.feature.main.remote;
+package com.charlezz.javaapp.feature.remote;
 
 import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
@@ -30,22 +30,13 @@ public class RemoteModule {
 
     @Provides
     @FragmentScope
-    ViewModelProvider.Factory provideViewModelFactory(final PostDataSourceFactory factory, final RemoteViewModel.Navigator navigator){
+    ViewModelProvider.Factory provideViewModelFactory(final PostDataSourceFactory factory){
         return new ViewModelProvider.Factory() {
             @NonNull
             @Override
             public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
-                return (T) new RemoteViewModel(factory, navigator);
+                return (T) new RemoteViewModel(factory);
             }
-        };
-    }
-
-
-
-    @Provides
-    @FragmentScope
-    RemoteViewModel.Navigator provideNavigator(){
-        return new RemoteViewModel.Navigator() {
         };
     }
 

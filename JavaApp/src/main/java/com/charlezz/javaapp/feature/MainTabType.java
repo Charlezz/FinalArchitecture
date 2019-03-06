@@ -1,15 +1,15 @@
-package com.charlezz.javaapp.feature.main;
+package com.charlezz.javaapp.feature;
 
 import android.content.Context;
 import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 
 import com.charlezz.javaapp.R;
-import com.charlezz.javaapp.feature.main.local.LocalFragment;
-import com.charlezz.javaapp.feature.main.remote.RemoteFragment;
+import com.charlezz.javaapp.feature.local.PersonFragment;
+import com.charlezz.javaapp.feature.remote.RemoteFragment;
 
 public enum MainTabType {
-    LOCAL(new LocalFragment(), R.string.local),
+    LOCAL(new PersonFragment(), R.string.local),
     REMOTE(new RemoteFragment(),R.string.remote);
 
 

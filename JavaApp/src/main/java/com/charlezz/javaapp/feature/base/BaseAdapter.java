@@ -1,4 +1,4 @@
-package com.charlezz.javaapp.feature.main.base;
+package com.charlezz.javaapp.feature.base;
 
 import android.arch.paging.PagedListAdapter;
 import android.databinding.DataBindingUtil;

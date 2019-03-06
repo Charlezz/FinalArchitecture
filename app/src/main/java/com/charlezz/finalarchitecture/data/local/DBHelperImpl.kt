@@ -3,9 +3,8 @@ package com.charlezz.finalarchitecture.data.local
 import android.arch.lifecycle.LiveData
 import android.arch.paging.LivePagedListBuilder
 import android.arch.paging.PagedList
-import javax.inject.Inject
 
-class DBHelperImpl @Inject constructor(private val personDao: PersonDao) : DBHelper {
+class DBHelperImpl (private val personDao: PersonDao) : DBHelper {
     override fun getPersons(): LiveData<PagedList<Person>> = LivePagedListBuilder(
             personDao.getPersonSource(),
             PagedList.Config.Builder()

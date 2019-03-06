@@ -8,9 +8,9 @@ import android.arch.paging.PagedList
 import com.charlezz.finalarchitecture.data.local.DBHelper
 import com.charlezz.finalarchitecture.data.local.Person
 
-class PersonFragmentViewModel(DBHelper: DBHelper) : ViewModel() {
+class PersonFragmentViewModel(dbHelprer: DBHelper) : ViewModel() {
 
-    val persons:LiveData<PagedList<Person>> = DBHelper.getPersons()
+    val persons:LiveData<PagedList<Person>> = dbHelprer.getPersons()
     val isLoaded = Transformations.switchMap(persons){
         input: PagedList<Person>? ->
         MutableLiveData<Boolean>().apply { value = (input!=null&&input.size!=0) }

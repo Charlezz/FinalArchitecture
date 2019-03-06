@@ -1,4 +1,4 @@
-package com.charlezz.javaapp.feature.main;
+package com.charlezz.javaapp.feature;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
@@ -7,10 +7,10 @@ import com.charlezz.javaapp.R;
 import com.charlezz.javaapp.databinding.ActivityMainBinding;
 import com.charlezz.javaapp.di.ActivityScope;
 import com.charlezz.javaapp.di.FragmentScope;
-import com.charlezz.javaapp.feature.main.local.LocalFragment;
-import com.charlezz.javaapp.feature.main.local.LocalModule;
-import com.charlezz.javaapp.feature.main.remote.RemoteFragment;
-import com.charlezz.javaapp.feature.main.remote.RemoteModule;
+import com.charlezz.javaapp.feature.local.PersonFragment;
+import com.charlezz.javaapp.feature.local.PersonModule;
+import com.charlezz.javaapp.feature.remote.RemoteFragment;
+import com.charlezz.javaapp.feature.remote.RemoteModule;
 
 import dagger.Module;
 import dagger.Provides;
@@ -50,8 +50,8 @@ public abstract class MainModule {
 //    }
 
     @FragmentScope
-    @ContributesAndroidInjector(modules = LocalModule.class)
-    abstract LocalFragment localFragment();
+    @ContributesAndroidInjector(modules = PersonModule.class)
+    abstract PersonFragment personFragment();
 
     @FragmentScope
     @ContributesAndroidInjector(modules = RemoteModule.class)

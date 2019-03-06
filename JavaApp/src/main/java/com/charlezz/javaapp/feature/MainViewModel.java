@@ -1,4 +1,4 @@
-package com.charlezz.javaapp.feature.main;
+package com.charlezz.javaapp.feature;
 
 import android.arch.lifecycle.ViewModel;
 

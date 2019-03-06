@@ -1,14 +1,14 @@
-package com.charlezz.javaapp.feature.main.remote;
+package com.charlezz.javaapp.feature.remote;
+
+import android.arch.paging.PageKeyedDataSource;
+import android.support.annotation.NonNull;
+import android.util.Log;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import android.arch.paging.PageKeyedDataSource;
-import android.support.annotation.NonNull;
-import android.util.Log;
 
 import okhttp3.Headers;
 import retrofit2.Call;
@@ -47,7 +47,9 @@ public class PostDataSource extends PageKeyedDataSource<Integer, Post> {
 
     @Override
     public void loadAfter(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, Post> callback) {
-        Log.e(TAG,"loadAfter");
+        Log.e(TAG,"loadAfter remote");
+//        PostEventBus.getInstance().send(false);
+
 
         Call<List<Post>> request = postService.getPosts(params.key);
         try {
@@ -57,11 +59,17 @@ public class PostDataSource extends PageKeyedDataSource<Integer, Post> {
             Headers headers = response.headers();
             String linkString = headers.get("link");
             Integer nextPage = getNextPage(linkString);
+//            Thread.sleep(1000);
 
             callback.onResult(items, nextPage);
         } catch (IOException e) {
             e.printStackTrace();
         }
+//        catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        PostEventBus.getInstance().send(true);
+
     }
     private HashMap<String, String> extractLink(String str){
         Matcher matcher = LINK_PATTERN.matcher(str);

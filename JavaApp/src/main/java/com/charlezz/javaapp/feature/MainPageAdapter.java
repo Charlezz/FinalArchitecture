@@ -1,4 +1,4 @@
-package com.charlezz.javaapp.feature.main;
+package com.charlezz.javaapp.feature;
 
 import android.content.Context;
 import android.support.annotation.Nullable;

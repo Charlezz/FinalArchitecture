@@ -1,4 +1,4 @@
-package com.charlezz.javaapp.feature.main;
+package com.charlezz.javaapp.feature;
 
 import javax.inject.Inject;
 

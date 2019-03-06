@@ -3,7 +3,7 @@
     <data>
         <variable
                 name="viewmodel"
-                type="com.charlezz.javaapp.feature.main.MainViewModel"/>
+                type="com.charlezz.javaapp.feature.MainViewModel"/>
     </data>
     <android.support.constraint.ConstraintLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
