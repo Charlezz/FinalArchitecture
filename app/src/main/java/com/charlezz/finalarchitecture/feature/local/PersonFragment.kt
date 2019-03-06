@@ -9,7 +9,6 @@ import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
 class PersonFragment : DaggerFragment() {
-    val TAG = PersonFragment::class.java.simpleName
     @Inject
     lateinit var binding: FragmentPersonBinding
 
@@ -23,7 +22,7 @@ class PersonFragment : DaggerFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
         binding.recyclerView.adapter = adapter
         binding.viewmodel = viewmodel
     }

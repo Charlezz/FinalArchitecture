@@ -1,12 +1,17 @@
 package com.charlezz.finalarchitecture.data.local
 
-import android.arch.paging.DataSource
+import android.arch.lifecycle.LiveData
+import android.arch.paging.LivePagedListBuilder
+import android.arch.paging.PagedList
 import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
-class DBHelperImpl @Inject constructor(private val appDatabase: AppDatabase): DBHelper {
-    override fun getAllPersonsSource(): DataSource.Factory<Int, Person> {
-        return appDatabase.dao().getAllPersonsSource()
-    }
+class DBHelperImpl @Inject constructor(private val personDao: PersonDao) : DBHelper {
+    override fun getPersons(): LiveData<PagedList<Person>> = LivePagedListBuilder(
+            personDao.getPersonSource(),
+            PagedList.Config.Builder()
+                    .setEnablePlaceholders(false)
+                    .setPageSize(20)
+                    .build()).build()
+
+
 }

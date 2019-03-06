@@ -3,12 +3,9 @@ package com.charlezz.finalarchitecture.data.pref
 import android.arch.lifecycle.MutableLiveData
 import android.content.Context
 import android.content.SharedPreferences
-import javax.inject.Inject
-import javax.inject.Named
-import javax.inject.Singleton
 
-@Singleton
-class PreferencesHelperImpl @Inject constructor(context: Context, @Named("my_pref") prefName: String) : PreferencesHelper {
+@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
+class PreferencesHelperImpl constructor(context: Context, prefName: String) : PreferencesHelper {
 
     val KEY_DATA = "data"
 

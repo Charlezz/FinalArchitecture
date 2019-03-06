@@ -1,7 +1,7 @@
 package com.charlezz.finalarchitecture
 
-import com.charlezz.finalarchitecture.data.DataManager
 import com.charlezz.finalarchitecture.data.local.DBHelper
+import com.charlezz.finalarchitecture.data.local.PersonDao
 import com.charlezz.finalarchitecture.data.pref.PreferencesHelper
 import com.charlezz.finalarchitecture.data.remote.ApiHelper
 import com.charlezz.finalarchitecture.feature.local.PersonFragmentViewModel
@@ -22,12 +22,12 @@ private const val FAKE_STRING = "HELLO WORLD"
 class ExampleUnitTest {
 
     @Mock
-    lateinit var dataManager: DataManager
+    lateinit var DBHelper: DBHelper
 
     lateinit var personViewModel: PersonFragmentViewModel
 
     @Mock
-    lateinit var dbHelper:DBHelper
+    lateinit var personDao:PersonDao
 
     @Mock
     lateinit var preferencesHelper:PreferencesHelper
@@ -40,6 +40,6 @@ class ExampleUnitTest {
 
     @Test
     fun personViewModel(){
-        dataManager.getPersons()
+        DBHelper.getPersons()
     }
 }

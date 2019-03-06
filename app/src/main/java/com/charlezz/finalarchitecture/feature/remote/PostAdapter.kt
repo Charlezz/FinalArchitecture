@@ -15,20 +15,12 @@ class PostAdapter : BaseAdapter<Post, ViewPostBinding, PostAdapter.PostViewHolde
 
     companion object {
         val diffCallback = object : DiffUtil.ItemCallback<Post>() {
-            override fun areContentsTheSame(oldItem: Post?, newItem: Post?): Boolean {
-                return if (oldItem != null && newItem != null){
-                    oldItem.id == newItem.id &&
-                            oldItem.body == newItem.body &&
-                            oldItem.title == newItem.title &&
-                            oldItem.userId == newItem.userId
-                } else {
-                    false
-                }
-            }
+            override fun areContentsTheSame(oldItem: Post, newItem: Post)=oldItem.id == newItem.id &&
+                    oldItem.body == newItem.body &&
+                    oldItem.title == newItem.title &&
+                    oldItem.userId == newItem.userId
 
-            override fun areItemsTheSame(oldItem: Post?, newItem: Post?): Boolean {
-                return oldItem == newItem
-            }
+            override fun areItemsTheSame(oldItem: Post, newItem: Post)=oldItem == newItem
         }
     }
 }

@@ -5,7 +5,6 @@ import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
-import com.charlezz.finalarchitecture.App
 import com.charlezz.finalarchitecture.R
 import com.charlezz.finalarchitecture.data.remote.ApiHelper
 import com.charlezz.finalarchitecture.databinding.FragmentPostBinding
@@ -13,6 +12,7 @@ import com.charlezz.finalarchitecture.di.FragmentScope
 import dagger.Module
 import dagger.Provides
 
+@Suppress("UNCHECKED_CAST")
 @Module
 class PostFragmentModule {
     @Provides
@@ -27,10 +27,10 @@ class PostFragmentModule {
 
     @Provides
     @FragmentScope
-    fun providePostFragmentViewModel(app: App, fragment: PostFragment, apiHelper: ApiHelper): PostFragmentViewModel =
+    fun providePostFragmentViewModel(fragment: PostFragment, apiHelper: ApiHelper): PostFragmentViewModel =
             ViewModelProviders.of(fragment, object : ViewModelProvider.Factory {
                 override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-                    return PostFragmentViewModel(app, apiHelper).apply {
+                    return PostFragmentViewModel(apiHelper).apply {
                         posts.observe(fragment, Observer {})
                     } as T
                 }

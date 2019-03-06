@@ -2,26 +2,14 @@ package com.charlezz.finalarchitecture.feature.main
 
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
-import android.content.Intent
-import com.charlezz.finalarchitecture.extension.start
-import com.charlezz.finalarchitecture.feature.local.PersonActivity
-import com.charlezz.finalarchitecture.feature.photo.PhotoActivity
-import com.charlezz.finalarchitecture.feature.pref.PrefActivity
-import com.charlezz.finalarchitecture.feature.remote.PostActivity
+import android.arch.lifecycle.MutableLiveData
 
 class MainFragmentViewModel(val app:Application) : AndroidViewModel(app){
-    val TAG = MainFragmentViewModel::class.java.simpleName
+    val clickEvent = MutableLiveData<MainMenu>()
 
-    fun startPersonActivity(){
-        app.startActivity(Intent(app, PersonActivity::class.java))
+    fun onClick(mainMenu:MainMenu){
+        clickEvent.value = mainMenu
     }
-    fun startPostActivity(){
-        app.startActivity(Intent(app, PostActivity::class.java))
-    }
-    fun startPrefActivity(){
-        app.start(PrefActivity::class.java)
-    }
-    fun startPhotoActivity(){
-        app.start(PhotoActivity::class.java)
-    }
+
+
 }

@@ -10,15 +10,12 @@ import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 
-val TAG = "BindingAdapters"
-
 @Suppress("UNCHECKED_CAST")
 @BindingAdapter("bind:list")
 fun <T> submitList(recyclerView: RecyclerView, pageList: PagedList<T>?) {
     pageList?.let {
         val adapter = recyclerView.adapter as PagedListAdapter<T, *>
         adapter.submitList(pageList)
-        Log.e(TAG,"submitList")
     }
 }
 

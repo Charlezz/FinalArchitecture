@@ -1,4 +1,7 @@
 # Final Architecture
+# MVVM + Databinding + Dagger2 + Paging + AAC ViewModel + LiveData + Retrofit + Room + Photo Query
+# Kotlin Version + Java Version
+
 
 이 가이드는 이미 기초적인 안드로이드앱을 만들줄 알고,구조적인면에서 더 나은 앱을 만들기를 원하는 개발자를 위한 글입니다.
 

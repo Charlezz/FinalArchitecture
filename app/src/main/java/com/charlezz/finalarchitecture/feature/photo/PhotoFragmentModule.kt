@@ -28,7 +28,7 @@ class PhotoFragmentModule{
 
     @Provides
     @FragmentScope
-    fun providePhotoFragmentViewModel (fragment:PhotoFragment, @Named("photoCursor") cursor: Cursor, photoHelper: PhotoHelper): PhotoFragmentViewModel {
+    fun providePhotoFragmentViewModel (fragment:PhotoFragment, @Named("photoCursor") cursor: Cursor?, photoHelper: PhotoHelper): PhotoFragmentViewModel {
         return ViewModelProviders.of(fragment, object :ViewModelProvider.Factory{
             @Suppress("UNCHECKED_CAST")
             override fun <T : ViewModel?> create(modelClass: Class<T>): T {
@@ -47,14 +47,13 @@ class PhotoFragmentModule{
 
     @Provides
     @Named("photoCursor")
-    fun providePhotoCursor(context: Context): Cursor {
+    fun providePhotoCursor(context: Context): Cursor? {
         val uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
         val projection = null
         val selection = null
         val selectionArgs = null
         val sortOrder = null
-        //skip Paging Query, it's too annoying. It takes not a while by the way.
-        //귀찮아서 쿼리 페이징 하는건 패스. 어짜피 얼마 걸리지도 않음.
+        //skip Paging Query, it's too annoying, which takes not a while by the way.
         return context.contentResolver.query(uri, projection, selection, selectionArgs, sortOrder)
     }
 

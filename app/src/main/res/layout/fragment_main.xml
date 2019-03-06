@@ -2,6 +2,7 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="com.charlezz.finalarchitecture.feature.main.MainMenu"/>
         <variable
             name="viewmodel"
             type="com.charlezz.finalarchitecture.feature.main.MainFragmentViewModel" />
@@ -17,7 +18,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:onClick="@{(v)->viewmodel.startPersonActivity()}"
+            android:onClick="@{(v)->viewmodel.onClick(MainMenu.PERSON_ACTIVITY)}"
             app:layout_constraintBottom_toTopOf="@+id/btn_pref"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -28,14 +29,14 @@
             app:layout_constraintBottom_toTopOf="@+id/btn_remote"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:onClick="@{(v)->viewmodel.startPrefActivity()}"
+            android:onClick="@{(v)->viewmodel.onClick(MainMenu.PREFERENCE_ACTIVITY)}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <Button
             android:id="@+id/btn_remote"
             android:layout_width="wrap_content"
             android:text="Remote Data"
-            android:onClick="@{(v)->viewmodel.startPostActivity()}"
+            android:onClick="@{(v)->viewmodel.onClick(MainMenu.POST_ACTIVITY)}"
             app:layout_constraintTop_toBottomOf="@+id/btn_pref"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -45,7 +46,7 @@
         <Button
             android:id="@+id/btn_photo"
             android:text="Photo"
-            android:onClick="@{(v)->viewmodel.startPhotoActivity()}"
+            android:onClick="@{(v)->viewmodel.onClick(MainMenu.PHOTO_ACTIVITY)}"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btn_remote"

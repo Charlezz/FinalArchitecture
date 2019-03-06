@@ -1,17 +1,18 @@
 package com.charlezz.finalarchitecture.feature.pref
 
-import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.MutableLiveData
-import com.charlezz.finalarchitecture.App
+import android.arch.lifecycle.ViewModel
+import com.charlezz.finalarchitecture.data.pref.PreferencesHelper
 
-class PrefViewModel(val app: App) : AndroidViewModel(app) {
+class PrefViewModel(private val prefHelper:PreferencesHelper) : ViewModel() {
     val data = MutableLiveData<String>()
+
     init {
-        data.value = app.dataManager.getData()
+        data.value = prefHelper.getData()
     }
 
     fun setData(data:String){
-        if(app.dataManager.setData(data)){
+        if(prefHelper.setData(data)){
             this.data.value = data
         }
     }
