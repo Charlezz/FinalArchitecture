@@ -9,23 +9,17 @@
             type="com.charlezz.javaapp.feature.remote.RemoteViewModel"/>
     </data>
 
-        <FrameLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:layout_height="match_parent">
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
+                android:scrollbars="vertical"
                 bind:list="@{viewmodel.posts}"
                 android:layout_height="match_parent"/>
-
-            <ProgressBar
-                android:id="@+id/progress_bar"
-                android:visibility="@{viewmodel.isLoaded()? View.GONE: View.VISIBLE}"
-                android:layout_width="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_height="wrap_content" />
-        </FrameLayout>
+        </LinearLayout>
 
 
 </layout>

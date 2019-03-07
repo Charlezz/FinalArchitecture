@@ -10,7 +10,6 @@ import android.databinding.DataBindingUtil
 import android.provider.MediaStore
 import android.util.Log
 import com.charlezz.finalarchitecture.R
-import com.charlezz.finalarchitecture.data.photo.PhotoHelper
 import com.charlezz.finalarchitecture.databinding.FragmentPhotoBinding
 import com.charlezz.finalarchitecture.di.FragmentScope
 import dagger.Module

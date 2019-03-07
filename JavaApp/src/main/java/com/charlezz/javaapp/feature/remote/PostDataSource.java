@@ -48,9 +48,6 @@ public class PostDataSource extends PageKeyedDataSource<Integer, Post> {
     @Override
     public void loadAfter(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, Post> callback) {
         Log.e(TAG,"loadAfter remote");
-//        PostEventBus.getInstance().send(false);
-
-
         Call<List<Post>> request = postService.getPosts(params.key);
         try {
             Response<List<Post>> response = request.execute();
@@ -59,17 +56,10 @@ public class PostDataSource extends PageKeyedDataSource<Integer, Post> {
             Headers headers = response.headers();
             String linkString = headers.get("link");
             Integer nextPage = getNextPage(linkString);
-//            Thread.sleep(1000);
-
             callback.onResult(items, nextPage);
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//        PostEventBus.getInstance().send(true);
-
     }
     private HashMap<String, String> extractLink(String str){
         Matcher matcher = LINK_PATTERN.matcher(str);

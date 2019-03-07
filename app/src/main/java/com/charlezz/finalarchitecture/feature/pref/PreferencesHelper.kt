@@ -1,4 +1,4 @@
-package com.charlezz.finalarchitecture.data.pref
+package com.charlezz.finalarchitecture.feature.pref
 
 interface PreferencesHelper {
     fun getData(): String

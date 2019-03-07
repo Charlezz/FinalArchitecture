@@ -4,7 +4,6 @@ import android.support.annotation.NonNull
 import android.support.v7.util.DiffUtil
 import com.charlezz.finalarchitecture.BR
 import com.charlezz.finalarchitecture.R
-import com.charlezz.finalarchitecture.data.local.Person
 import com.charlezz.finalarchitecture.databinding.ViewPersonBinding
 import com.charlezz.finalarchitecture.feature.base.BaseAdapter
 import com.charlezz.finalarchitecture.feature.base.BaseViewHolder

@@ -1,4 +1,4 @@
-package com.charlezz.finalarchitecture.data.photo
+package com.charlezz.finalarchitecture.feature.photo
 
 import android.arch.paging.PositionalDataSource
 import android.database.Cursor

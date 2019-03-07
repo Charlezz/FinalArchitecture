@@ -4,7 +4,7 @@ import android.provider.MediaStore
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
 import android.util.Log
-import com.charlezz.finalarchitecture.data.photo.Photo
+import com.charlezz.finalarchitecture.feature.photo.Photo
 import com.charlezz.finalarchitecture.feature.TAG
 import org.junit.Assert.assertEquals
 import org.junit.Test
@@ -45,7 +45,7 @@ class ExampleInstrumentedTest {
         while (cursor.moveToNext()) {
             val name = cursor.getString(cursor.getColumnIndex(MediaStore.Images.ImageColumns.DISPLAY_NAME))
             val path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA))
-            list.add(Photo(name,path))
+            list.add(Photo(name, path))
         }
 
         tempTime = System.currentTimeMillis()-startTime-tempTime

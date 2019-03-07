@@ -1,4 +1,4 @@
-package com.charlezz.finalarchitecture.data.local
+package com.charlezz.finalarchitecture.feature.local
 
 import android.arch.lifecycle.LiveData
 import android.arch.paging.LivePagedListBuilder

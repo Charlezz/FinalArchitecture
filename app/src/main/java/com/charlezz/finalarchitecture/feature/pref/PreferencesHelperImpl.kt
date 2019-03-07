@@ -1,4 +1,4 @@
-package com.charlezz.finalarchitecture.data.pref
+package com.charlezz.finalarchitecture.feature.pref
 
 import android.arch.lifecycle.MutableLiveData
 import android.content.Context

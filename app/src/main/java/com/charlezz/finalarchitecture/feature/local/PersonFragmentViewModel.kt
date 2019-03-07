@@ -5,8 +5,6 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.Transformations
 import android.arch.lifecycle.ViewModel
 import android.arch.paging.PagedList
-import com.charlezz.finalarchitecture.data.local.DBHelper
-import com.charlezz.finalarchitecture.data.local.Person
 
 class PersonFragmentViewModel(dbHelprer: DBHelper) : ViewModel() {
 
