@@ -9,9 +9,9 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import com.charlezz.finalarchitecture.App
 import com.charlezz.finalarchitecture.AppConstants
+import com.charlezz.finalarchitecture.feature.local.AppDatabase
 import com.charlezz.finalarchitecture.feature.local.DBHelper
 import com.charlezz.finalarchitecture.feature.local.DBHelperImpl
-import com.charlezz.finalarchitecture.feature.local.AppDatabase
 import com.charlezz.finalarchitecture.feature.local.PersonDao
 import com.charlezz.finalarchitecture.feature.photo.PhotoHelper
 import com.charlezz.finalarchitecture.feature.photo.PhotoHelperImpl
