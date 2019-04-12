@@ -3,7 +3,6 @@ package com.charlezz.finalarchitecture.feature.photo
 import android.support.v7.util.DiffUtil
 import com.charlezz.finalarchitecture.BR
 import com.charlezz.finalarchitecture.R
-import com.charlezz.finalarchitecture.data.photo.Photo
 import com.charlezz.finalarchitecture.databinding.ViewPhotoBinding
 import com.charlezz.finalarchitecture.feature.base.BaseAdapter
 import com.charlezz.finalarchitecture.feature.base.BaseViewHolder

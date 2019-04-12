@@ -5,7 +5,6 @@ import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import com.charlezz.finalarchitecture.R
-import com.charlezz.finalarchitecture.data.pref.PreferencesHelper
 import com.charlezz.finalarchitecture.databinding.ActivityPrefBinding
 import com.charlezz.finalarchitecture.di.ActivityScope
 import dagger.Module

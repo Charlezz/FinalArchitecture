@@ -1,7 +1,7 @@
 package com.charlezz.javaapp.di;
 
-import com.charlezz.javaapp.feature.main.MainActivity;
-import com.charlezz.javaapp.feature.main.MainModule;
+import com.charlezz.javaapp.feature.MainActivity;
+import com.charlezz.javaapp.feature.MainModule;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;

@@ -5,7 +5,6 @@ import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import com.charlezz.finalarchitecture.R
-import com.charlezz.finalarchitecture.data.local.DBHelper
 import com.charlezz.finalarchitecture.databinding.FragmentPersonBinding
 import com.charlezz.finalarchitecture.di.FragmentScope
 import dagger.Module

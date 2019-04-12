@@ -5,8 +5,6 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.arch.paging.PagedList
 import android.database.Cursor
-import com.charlezz.finalarchitecture.data.photo.Photo
-import com.charlezz.finalarchitecture.data.photo.PhotoHelper
 
 class PhotoFragmentViewModel(private val cursor: Cursor?, photoHelper: PhotoHelper):ViewModel(){
 

@@ -9,15 +9,15 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import com.charlezz.finalarchitecture.App
 import com.charlezz.finalarchitecture.AppConstants
-import com.charlezz.finalarchitecture.data.local.DBHelper
-import com.charlezz.finalarchitecture.data.local.DBHelperImpl
-import com.charlezz.finalarchitecture.data.local.AppDatabase
-import com.charlezz.finalarchitecture.data.local.PersonDao
-import com.charlezz.finalarchitecture.data.photo.PhotoHelper
-import com.charlezz.finalarchitecture.data.photo.PhotoHelperImpl
-import com.charlezz.finalarchitecture.data.pref.PreferencesHelper
-import com.charlezz.finalarchitecture.data.pref.PreferencesHelperImpl
-import com.charlezz.finalarchitecture.data.remote.ApiHelper
+import com.charlezz.finalarchitecture.feature.local.DBHelper
+import com.charlezz.finalarchitecture.feature.local.DBHelperImpl
+import com.charlezz.finalarchitecture.feature.local.AppDatabase
+import com.charlezz.finalarchitecture.feature.local.PersonDao
+import com.charlezz.finalarchitecture.feature.photo.PhotoHelper
+import com.charlezz.finalarchitecture.feature.photo.PhotoHelperImpl
+import com.charlezz.finalarchitecture.feature.pref.PreferencesHelper
+import com.charlezz.finalarchitecture.feature.pref.PreferencesHelperImpl
+import com.charlezz.finalarchitecture.feature.remote.ApiHelper
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -43,7 +43,7 @@ class AppModule {
     @Singleton
     fun provideAppDatabase(context: Context): AppDatabase {
         return Room
-                .inMemoryDatabaseBuilder(context,AppDatabase::class.java) // temporary
+                .inMemoryDatabaseBuilder(context, AppDatabase::class.java) // temporary
 //                .databaseBuilder(context, AppDatabase::class.java, AppConstants.DB_NAME) // permanent
                 .fallbackToDestructiveMigration()
                 .addCallback(object : RoomDatabase.Callback(){
@@ -62,7 +62,7 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideApiHelper():ApiHelper = Retrofit.Builder()
+    fun provideApiHelper(): ApiHelper = Retrofit.Builder()
             .baseUrl("https://jsonplaceholder.typicode.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -70,13 +70,13 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun providePersonDao(appDatabase:AppDatabase): PersonDao {
+    fun providePersonDao(appDatabase: AppDatabase): PersonDao {
         return appDatabase.dao()
     }
 
     @Provides
     @Singleton
-    fun provideDataManager(personDao:PersonDao): DBHelper {
+    fun provideDataManager(personDao: PersonDao): DBHelper {
         return DBHelperImpl(personDao)
     }
 
@@ -88,7 +88,7 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun providePhotoHelper():PhotoHelper{
+    fun providePhotoHelper(): PhotoHelper {
         return PhotoHelperImpl()
     }
 }
