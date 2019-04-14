@@ -9,6 +9,8 @@ import com.charlezz.javaapp.di.ActivityScope;
 import com.charlezz.javaapp.di.FragmentScope;
 import com.charlezz.javaapp.feature.local.PersonFragment;
 import com.charlezz.javaapp.feature.local.PersonModule;
+import com.charlezz.javaapp.feature.photo.PhotoFragment;
+import com.charlezz.javaapp.feature.photo.PhotoModule;
 import com.charlezz.javaapp.feature.remote.RemoteFragment;
 import com.charlezz.javaapp.feature.remote.RemoteModule;
 
@@ -36,19 +38,6 @@ public abstract class MainModule {
         return new MainPageAdapter(activity, activity.getSupportFragmentManager());
     }
 
-
-//    @Provides
-//    @ActivityScope
-//    static InvocationHandler provideInvocationHandler(MainActivity activity){
-//        return new MyInvocationHandler(activity);
-//    }
-
-//    @Provides
-//    @ActivityScope
-//    static MainViewModel.Navigator provideNavigator(MainActivity activity, InvocationHandler invocationHandler){
-//        return (MainViewModel.Navigator) Proxy.newProxyInstance(activity.getClassLoader(), new Class<?>[]{MainViewModel.Navigator.class}, invocationHandler);
-//    }
-
     @FragmentScope
     @ContributesAndroidInjector(modules = PersonModule.class)
     abstract PersonFragment personFragment();
@@ -56,5 +45,9 @@ public abstract class MainModule {
     @FragmentScope
     @ContributesAndroidInjector(modules = RemoteModule.class)
     abstract RemoteFragment remoteFragment();
+
+    @FragmentScope
+    @ContributesAndroidInjector(modules = PhotoModule.class)
+    abstract PhotoFragment photoFragment();
 
 }

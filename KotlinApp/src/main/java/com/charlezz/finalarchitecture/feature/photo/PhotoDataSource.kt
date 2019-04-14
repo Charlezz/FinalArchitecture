@@ -8,11 +8,9 @@ class PhotoDataSource(private val cursor: Cursor) : PositionalDataSource<Photo>(
 
     override fun loadInitial(params: LoadInitialParams, callback: LoadInitialCallback<Photo>) {
         val totalCount = cursor.count
-        val position = computeInitialLoadPosition(params, totalCount)
-        val loadSize = computeInitialLoadSize(params, position, totalCount)
-        val photoList = getPhotos(position, position+loadSize)
+        val photoList = getPhotos(0, params.requestedLoadSize)
 
-        callback.onResult(photoList, position,totalCount)
+        callback.onResult(photoList, 0,totalCount)
     }
 
     override fun loadRange(params: LoadRangeParams, callback: LoadRangeCallback<Photo>) {

@@ -24,20 +24,14 @@ public class RemoteModule {
 
     @Provides
     @FragmentScope
-    RemoteViewModel provideRemoteViewModel(RemoteFragment fragment, ViewModelProvider.Factory factory){
-        return ViewModelProviders.of(fragment, factory).get(RemoteViewModel.class);
-    }
-
-    @Provides
-    @FragmentScope
-    ViewModelProvider.Factory provideViewModelFactory(final PostDataSourceFactory factory){
-        return new ViewModelProvider.Factory() {
+    RemoteViewModel provideRemoteViewModel(RemoteFragment fragment, final PostDataSourceFactory factory){
+        return ViewModelProviders.of(fragment, new ViewModelProvider.Factory() {
             @NonNull
             @Override
             public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
                 return (T) new RemoteViewModel(factory);
             }
-        };
+        }).get(RemoteViewModel.class);
     }
 
     @Provides

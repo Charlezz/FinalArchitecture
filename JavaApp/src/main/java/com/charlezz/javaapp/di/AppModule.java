@@ -1,5 +1,9 @@
 package com.charlezz.javaapp.di;
 
+import java.util.Locale;
+
+import javax.inject.Singleton;
+
 import android.arch.persistence.db.SupportSQLiteDatabase;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
@@ -14,10 +18,6 @@ import com.charlezz.javaapp.feature.local.DBHelper;
 import com.charlezz.javaapp.feature.local.DBHelperImpl;
 import com.charlezz.javaapp.feature.local.PersonDao;
 import com.charlezz.javaapp.feature.remote.PostService;
-
-import java.util.Locale;
-
-import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;

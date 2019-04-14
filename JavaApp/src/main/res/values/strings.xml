@@ -2,4 +2,5 @@
     <string name="app_name">JavaApp</string>
     <string name="local">Local</string>
     <string name="remote">Remote</string>
+    <string name="photo">Photo</string>
 </resources>

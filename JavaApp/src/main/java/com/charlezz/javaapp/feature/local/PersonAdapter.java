@@ -1,7 +1,10 @@
 package com.charlezz.javaapp.feature.local;
 
+import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.v7.util.DiffUtil;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 
 import com.charlezz.javaapp.BR;
 import com.charlezz.javaapp.R;
@@ -30,8 +33,8 @@ public class PersonAdapter extends BaseAdapter<Person,PersonAdapter.PersonViewHo
 
     @NonNull
     @Override
-    protected int getLayoutResId(int viewType) {
-        return R.layout.view_person;
+    public PersonViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        return new PersonViewHolder((ViewPersonBinding) DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()), R.layout.view_person, viewGroup, false));
     }
 
     @NonNull
