@@ -33,11 +33,7 @@ class PhotoFragmentModule{
             override fun <T : ViewModel?> create(modelClass: Class<T>): T {
                 return PhotoFragmentViewModel(cursor,photoHelper) as T
             }
-        }).get(PhotoFragmentViewModel::class.java).apply {
-            photos.observe(fragment, Observer {
-                Log.e(TAG, "size=${it?.size}")
-            })
-        }
+        }).get(PhotoFragmentViewModel::class.java)
     }
 
     @Provides
