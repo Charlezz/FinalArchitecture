@@ -98,5 +98,4 @@ dependencies {
 
     //seletion
     implementation "com.android.support:recyclerview-selection:$supportLibVersion"
-
 }
