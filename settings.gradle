@@ -1,1 +1,1 @@
-include ':KotlinApp', ':JavaApp', ':MVCSample'
+include ':KotlinApp', ':JavaApp', ':MVCSample', ':MVPSample'

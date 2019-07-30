@@ -1,4 +1,4 @@
-package com.charlezz.mvcsample.view;
+package com.charlezz.mvpsample.view;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.charlezz.mvcsample.R;
-import com.charlezz.mvcsample.model.Person;
+import com.charlezz.mvpsample.R;
+import com.charlezz.mvpsample.model.Person;
 
 public class MainViewHolder extends RecyclerView.ViewHolder {
 
@@ -15,7 +15,6 @@ public class MainViewHolder extends RecyclerView.ViewHolder {
     private Button delete;
     private HolderClickListener listener;
     private Person person;
-
     public MainViewHolder(@NonNull View itemView) {
         super(itemView);
         name = itemView.findViewById(R.id.name);

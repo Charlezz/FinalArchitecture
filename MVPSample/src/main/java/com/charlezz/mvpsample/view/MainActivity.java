@@ -1,4 +1,4 @@
-package com.charlezz.mvcsample.controller;
+package com.charlezz.mvpsample.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,36 +7,33 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.charlezz.mvcsample.R;
-import com.charlezz.mvcsample.model.Database;
-import com.charlezz.mvcsample.model.Person;
-import com.charlezz.mvcsample.view.MainViewHolder;
+import com.charlezz.mvpsample.MainContract;
+import com.charlezz.mvpsample.R;
+import com.charlezz.mvpsample.model.Database;
+import com.charlezz.mvpsample.model.Person;
+import com.charlezz.mvpsample.presenter.MainPresenter;
 
+import java.util.List;
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity implements MainViewHolder.HolderClickListener {
+public class MainActivity extends AppCompatActivity implements MainContract.View, MainViewHolder.HolderClickListener {
     public static final String TAG = MainActivity.class.getSimpleName();
 
     RecyclerView recyclerView;
     LinearLayoutManager linearLayoutManager;
     MainAdapter adapter;
-    Database database = Database.getInstance();
+    MainContract.Presenter presenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.recycler_view);
         linearLayoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(linearLayoutManager);
         adapter = new MainAdapter(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
-        adapter.setItems(database.getPersonList());
-        database.setOnDatabaseListener(new Database.DatabaseListener(){
-            @Override
-            public void onChanged() {
-                adapter.setItems(database.getPersonList());
-            }
-        });
+        presenter = new MainPresenter(Database.getInstance(), this);
+        presenter.load();
     }
 
     @Override
@@ -47,13 +44,23 @@ public class MainActivity extends AppCompatActivity implements MainViewHolder.Ho
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        database.add(new Person(System.currentTimeMillis(), String.format("New Charles %d", new Random().nextInt(1000))));
+        presenter.addPerson(new Person(System.currentTimeMillis(), String.format("New Charles %d", new Random().nextInt(1000))));
         return super.onOptionsItemSelected(item);
 
     }
 
     @Override
+    public void showPersonList(List<Person> personList) {
+        adapter.setItems(personList);
+    }
+
+    @Override
+    public void notifyDataChanged() {
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
     public void onDeleteClick(Person person) {
-        database.remove(person);
+        presenter.removePerson(person);
     }
 }

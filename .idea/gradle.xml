@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/JavaApp" />
             <option value="$PROJECT_DIR$/KotlinApp" />
             <option value="$PROJECT_DIR$/MVCSample" />
+            <option value="$PROJECT_DIR$/MVPSample" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
