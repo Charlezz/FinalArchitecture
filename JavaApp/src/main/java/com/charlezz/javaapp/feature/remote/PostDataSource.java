@@ -1,7 +1,7 @@
 package com.charlezz.javaapp.feature.remote;
 
-import android.arch.paging.PageKeyedDataSource;
-import android.support.annotation.NonNull;
+import androidx.paging.PageKeyedDataSource;
+import androidx.annotation.NonNull;
 import android.util.Log;
 
 import java.io.IOException;

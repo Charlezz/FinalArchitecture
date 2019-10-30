@@ -3,10 +3,10 @@ package com.charlezz.javaapp.feature.photo;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.arch.paging.PositionalDataSource;
+import androidx.paging.PositionalDataSource;
 import android.database.Cursor;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import androidx.recyclerview.selection.SelectionTracker;
 

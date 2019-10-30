@@ -1,11 +1,11 @@
 package com.charlezz.javaapp.feature.local;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MediatorLiveData;
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModel;
-import android.arch.paging.PagedList;
-import android.support.annotation.Nullable;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MediatorLiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModel;
+import androidx.paging.PagedList;
+import androidx.annotation.Nullable;
 
 public class PersonViewModel extends ViewModel {
     private LiveData<PagedList<Person>> persons;

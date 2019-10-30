@@ -1,6 +1,6 @@
 package com.charlezz.finalarchitecture.feature.remote
 
-import android.arch.paging.ItemKeyedDataSource
+import androidx.paging.ItemKeyedDataSource
 
 class PostDataSource(val apiHelper: ApiHelper) : ItemKeyedDataSource<Long, Post>(){
     override fun loadInitial(params: LoadInitialParams<Long>, callback: LoadInitialCallback<Post>) {

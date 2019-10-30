@@ -1,8 +1,8 @@
 package com.charlezz.finalarchitecture
 
 import android.provider.MediaStore
-import android.support.test.InstrumentationRegistry
-import android.support.test.runner.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import android.util.Log
 import com.charlezz.finalarchitecture.feature.photo.Photo
 import com.charlezz.finalarchitecture.feature.TAG

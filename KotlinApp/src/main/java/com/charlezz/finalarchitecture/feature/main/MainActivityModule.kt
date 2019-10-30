@@ -1,6 +1,6 @@
 package com.charlezz.finalarchitecture.feature.main
 
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import com.charlezz.finalarchitecture.R
 import com.charlezz.finalarchitecture.databinding.ActivityMainBinding
 import com.charlezz.finalarchitecture.di.ActivityScope

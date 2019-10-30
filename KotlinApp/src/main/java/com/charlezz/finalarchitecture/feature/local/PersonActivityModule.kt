@@ -1,6 +1,6 @@
 package com.charlezz.finalarchitecture.feature.local
 
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import com.charlezz.finalarchitecture.R
 import com.charlezz.finalarchitecture.databinding.ActivityPersonBinding
 import com.charlezz.finalarchitecture.di.ActivityScope

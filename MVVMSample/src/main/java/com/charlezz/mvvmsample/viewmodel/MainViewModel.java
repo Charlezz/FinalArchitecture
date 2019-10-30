@@ -1,6 +1,6 @@
 package com.charlezz.mvvmsample.viewmodel;
 
-import android.databinding.BaseObservable;
+import androidx.databinding.BaseObservable;
 
 import com.charlezz.mvvmsample.model.Database;
 import com.charlezz.mvvmsample.model.Person;

@@ -4,13 +4,13 @@ import java.util.Locale;
 
 import javax.inject.Singleton;
 
-import android.arch.persistence.db.SupportSQLiteDatabase;
-import android.arch.persistence.room.Room;
-import android.arch.persistence.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.charlezz.javaapp.App;
 import com.charlezz.javaapp.feature.local.AppDatabase;

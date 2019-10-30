@@ -1,6 +1,6 @@
 package com.charlezz.finalarchitecture.feature.remote
 
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import com.charlezz.finalarchitecture.R
 import com.charlezz.finalarchitecture.databinding.ActivityPostBinding
 import com.charlezz.finalarchitecture.di.ActivityScope

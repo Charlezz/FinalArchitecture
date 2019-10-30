@@ -1,10 +1,10 @@
 package com.charlezz.finalarchitecture.feature.remote
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
-import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
+import androidx.databinding.DataBindingUtil
 import com.charlezz.finalarchitecture.R
 import com.charlezz.finalarchitecture.databinding.FragmentPostBinding
 import com.charlezz.finalarchitecture.di.FragmentScope

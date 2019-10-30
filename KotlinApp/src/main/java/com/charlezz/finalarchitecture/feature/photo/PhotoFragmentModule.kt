@@ -1,12 +1,12 @@
 package com.charlezz.finalarchitecture.feature.photo
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import android.content.Context
 import android.database.Cursor
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.provider.MediaStore
 import android.util.Log
 import com.charlezz.finalarchitecture.R

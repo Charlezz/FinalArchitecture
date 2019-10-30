@@ -1,8 +1,8 @@
 package com.charlezz.javaapp.feature.base;
 
-import android.databinding.ViewDataBinding;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.databinding.ViewDataBinding;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class BaseViewHolder<VDB extends ViewDataBinding> extends RecyclerView.ViewHolder {
     private VDB binding;

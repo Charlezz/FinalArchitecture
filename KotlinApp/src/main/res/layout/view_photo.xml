@@ -8,7 +8,7 @@
             type="com.charlezz.finalarchitecture.feature.photo.Photo" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -23,5 +23,5 @@
             app:layout_constraintDimensionRatio="1:1"
             bind:image="@{photo.path}"
             android:layout_height="0dp" />
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

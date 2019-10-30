@@ -1,7 +1,7 @@
 package com.charlezz.javaapp.feature;
 
-import android.arch.lifecycle.ViewModelProviders;
-import android.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.databinding.DataBindingUtil;
 
 import com.charlezz.javaapp.R;
 import com.charlezz.javaapp.databinding.ActivityMainBinding;

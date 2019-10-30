@@ -1,7 +1,7 @@
 package com.charlezz.javaapp.feature.photo;
 
 
-import android.arch.paging.DataSource;
+import androidx.paging.DataSource;
 import android.database.Cursor;
 
 import androidx.recyclerview.selection.SelectionTracker;

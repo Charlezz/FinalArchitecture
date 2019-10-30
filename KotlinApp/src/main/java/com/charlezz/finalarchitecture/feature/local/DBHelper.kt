@@ -1,7 +1,7 @@
 package com.charlezz.finalarchitecture.feature.local
 
-import android.arch.lifecycle.LiveData
-import android.arch.paging.PagedList
+import androidx.lifecycle.LiveData
+import androidx.paging.PagedList
 
 interface DBHelper{
     fun getPersons():LiveData<PagedList<Person>>

@@ -1,8 +1,8 @@
 package com.charlezz.finalarchitecture.feature.local
 
-import android.arch.lifecycle.LiveData
-import android.arch.paging.LivePagedListBuilder
-import android.arch.paging.PagedList
+import androidx.lifecycle.LiveData
+import androidx.paging.LivePagedListBuilder
+import androidx.paging.PagedList
 
 class DBHelperImpl (private val personDao: PersonDao) : DBHelper {
     override fun getPersons(): LiveData<PagedList<Person>> = LivePagedListBuilder(
