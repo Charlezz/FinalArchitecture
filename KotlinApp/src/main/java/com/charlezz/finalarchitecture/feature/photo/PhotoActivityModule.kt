@@ -1,7 +1,7 @@
 package com.charlezz.finalarchitecture.feature.photo
 
-import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
+import androidx.databinding.DataBindingUtil
 import com.charlezz.finalarchitecture.R
 import com.charlezz.finalarchitecture.databinding.ActivityPhotoBinding
 import com.charlezz.finalarchitecture.di.ActivityScope

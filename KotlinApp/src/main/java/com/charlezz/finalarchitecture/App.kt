@@ -1,7 +1,7 @@
 package com.charlezz.finalarchitecture
 
 import android.content.Context
-import android.support.multidex.MultiDex
+import androidx.multidex.MultiDex
 import com.charlezz.finalarchitecture.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication

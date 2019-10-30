@@ -1,9 +1,9 @@
 package com.charlezz.finalarchitecture.extension
 
 import android.app.Activity
-import android.support.annotation.IdRes
-import android.support.v4.app.Fragment
-import android.support.v7.app.AppCompatActivity
+import androidx.annotation.IdRes
+import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 
 fun Activity.setImmersiveStickyMode() {
@@ -13,7 +13,7 @@ fun Activity.setImmersiveStickyMode() {
             View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
 }
 
-fun AppCompatActivity.replaceFragment(@IdRes id: Int, supportFragment: Fragment) {
+fun AppCompatActivity.replaceFragment(@IdRes id: Int, supportFragment: androidx.fragment.app.Fragment) {
     supportFragmentManager.beginTransaction()
             .replace(id, supportFragment)
             .commitNow()

@@ -1,6 +1,6 @@
 package com.charlezz.finalarchitecture.feature.photo
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 
 class PhotoActivityViewModel: ViewModel(){
 

@@ -1,7 +1,7 @@
 package com.charlezz.finalarchitecture.feature.pref
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 
 class PrefViewModel(private val prefHelper: PreferencesHelper) : ViewModel() {
     val data = MutableLiveData<String>()

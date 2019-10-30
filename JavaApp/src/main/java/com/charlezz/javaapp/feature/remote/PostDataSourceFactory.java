@@ -1,6 +1,6 @@
 package com.charlezz.javaapp.feature.remote;
 
-import android.arch.paging.DataSource;
+import androidx.paging.DataSource;
 
 public class PostDataSourceFactory extends DataSource.Factory<Integer, Post> {
     private PostService postService;

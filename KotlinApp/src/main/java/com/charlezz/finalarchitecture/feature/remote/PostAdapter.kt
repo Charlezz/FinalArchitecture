@@ -1,6 +1,6 @@
 package com.charlezz.finalarchitecture.feature.remote
 
-import android.support.v7.util.DiffUtil
+import androidx.recyclerview.widget.DiffUtil
 import com.charlezz.finalarchitecture.BR
 import com.charlezz.finalarchitecture.R
 import com.charlezz.finalarchitecture.databinding.ViewPostBinding

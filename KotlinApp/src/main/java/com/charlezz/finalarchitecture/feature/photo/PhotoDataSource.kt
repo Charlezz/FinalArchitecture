@@ -1,6 +1,6 @@
 package com.charlezz.finalarchitecture.feature.photo
 
-import android.arch.paging.PositionalDataSource
+import androidx.paging.PositionalDataSource
 import android.database.Cursor
 import android.provider.MediaStore
 

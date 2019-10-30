@@ -11,7 +11,7 @@
             type="com.charlezz.finalarchitecture.feature.pref.PrefViewModel"/>
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".feature.pref.PrefActivity">
@@ -44,5 +44,5 @@
             app:layout_constraintTop_toBottomOf="@+id/edit_text"
             android:layout_height="wrap_content"/>
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

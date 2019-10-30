@@ -1,7 +1,7 @@
 package com.charlezz.javaapp.feature.local;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 @Entity(tableName = "person")
 public class Person {

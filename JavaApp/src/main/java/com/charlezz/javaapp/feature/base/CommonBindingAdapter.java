@@ -1,9 +1,9 @@
 package com.charlezz.javaapp.feature.base;
 
-import android.arch.paging.PagedList;
-import android.arch.paging.PagedListAdapter;
-import android.databinding.BindingAdapter;
-import android.support.v7.widget.RecyclerView;
+import androidx.paging.PagedList;
+import androidx.paging.PagedListAdapter;
+import androidx.databinding.BindingAdapter;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class CommonBindingAdapter {
     @BindingAdapter("bind:list")

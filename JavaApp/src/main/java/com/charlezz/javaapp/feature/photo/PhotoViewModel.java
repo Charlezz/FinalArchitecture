@@ -1,11 +1,11 @@
 package com.charlezz.javaapp.feature.photo;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.paging.LivePagedListBuilder;
-import android.arch.paging.PagedList;
+import androidx.lifecycle.LiveData;
+import androidx.paging.LivePagedListBuilder;
+import androidx.paging.PagedList;
 import android.content.Context;
 import android.database.Cursor;
-import android.databinding.BaseObservable;
+import androidx.databinding.BaseObservable;
 import android.provider.MediaStore;
 
 import androidx.recyclerview.selection.SelectionTracker;

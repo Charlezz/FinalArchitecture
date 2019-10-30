@@ -1,6 +1,6 @@
 package com.charlezz.finalarchitecture.feature.remote
 
-import android.arch.paging.DataSource
+import androidx.paging.DataSource
 
 
 class PostDataSourceFactory(val apiHelper: ApiHelper) : DataSource.Factory<Long, Post>(){

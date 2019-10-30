@@ -1,6 +1,6 @@
 package com.charlezz.javaapp.feature;
 
-import android.arch.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModel;
 
 public class MainViewModel extends ViewModel {
 

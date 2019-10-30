@@ -1,8 +1,8 @@
 package com.charlezz.javaapp.feature.base;
 
-import android.arch.paging.PagedListAdapter;
-import android.support.annotation.NonNull;
-import android.support.v7.util.DiffUtil;
+import androidx.paging.PagedListAdapter;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
 
 public abstract class BaseAdapter<D, VH extends BaseViewHolder> extends PagedListAdapter<D, VH> {
 
