@@ -4,25 +4,30 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
+import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
 import androidx.annotation.Nullable;
 
-public class PersonViewModel extends ViewModel {
-    private LiveData<PagedList<Person>> persons;
+import javax.inject.Inject;
+
+public class UserViewModel extends ViewModel {
+
+    private LiveData<PagedList<User>> persons;
     private MediatorLiveData<Boolean> isLoaded = new MediatorLiveData<>();
 
-    public PersonViewModel(DBHelper dbHelper){
+    @Inject
+    public UserViewModel(UserDao userDao){
         isLoaded.setValue(false);
-        persons = dbHelper.getPersons();
-        isLoaded.addSource(persons, new Observer<PagedList<Person>>() {
+        persons = new LivePagedListBuilder<>(userDao.getUsers(),1).build();
+        isLoaded.addSource(persons, new Observer<PagedList<User>>() {
             @Override
-            public void onChanged(@Nullable PagedList<Person> people) {
+            public void onChanged(@Nullable PagedList<User> people) {
                 isLoaded.setValue(people!=null && !people.isEmpty());
             }
         });
     }
 
-    public LiveData<PagedList<Person>> getPersons() {
+    public LiveData<PagedList<User>> getPersons() {
         return persons;
     }
 

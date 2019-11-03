@@ -5,12 +5,12 @@ import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 
 import com.charlezz.javaapp.R;
-import com.charlezz.javaapp.feature.local.PersonFragment;
+import com.charlezz.javaapp.feature.local.UserFragment;
 import com.charlezz.javaapp.feature.photo.PhotoFragment;
 import com.charlezz.javaapp.feature.remote.RemoteFragment;
 
 public enum MainTabType {
-    LOCAL(new PersonFragment(), R.string.local),
+    LOCAL(new UserFragment(), R.string.local),
     REMOTE(new RemoteFragment(),R.string.remote),
     PHOTO(new PhotoFragment(), R.string.photo);
 

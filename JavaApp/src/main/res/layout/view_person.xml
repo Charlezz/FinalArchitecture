@@ -5,7 +5,7 @@
 
         <variable
             name="data"
-            type="com.charlezz.javaapp.feature.local.Person" />
+            type="com.charlezz.javaapp.feature.local.User" />
     </data>
 
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"

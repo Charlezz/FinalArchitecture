@@ -1,17 +1,18 @@
 package com.charlezz.javaapp.feature;
 
-import java.util.List;
-
-import javax.inject.Inject;
-
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 
 import com.charlezz.javaapp.databinding.ActivityMainBinding;
+
+import java.util.List;
+
+import javax.inject.Inject;
 
 import dagger.android.support.DaggerAppCompatActivity;
 import io.reactivex.Observable;
@@ -31,14 +32,15 @@ public class MainActivity extends DaggerAppCompatActivity {
     @Inject
     MainPageAdapter adapter;
 
-    private final int REQUEST_PERMISSION_CODE = 1;
+    @Inject
+    CompositeDisposable disposables;
 
+    private final int REQUEST_PERMISSION_CODE = 1;
 
     private String[] permissions = new String[]{
             Manifest.permission.READ_EXTERNAL_STORAGE
     };
 
-    private CompositeDisposable disposalBag = new CompositeDisposable();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +65,7 @@ public class MainActivity extends DaggerAppCompatActivity {
                 }
             }
         });
-        disposalBag.add(disposal);
+        disposables.add(disposal);
     }
 
     @Override
@@ -83,8 +85,8 @@ public class MainActivity extends DaggerAppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(!disposalBag.isDisposed()){
-            disposalBag.dispose();
+        if(!disposables.isDisposed()){
+            disposables.dispose();
         }
     }
 

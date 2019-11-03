@@ -1,14 +1,18 @@
 package com.charlezz.javaapp.feature.photo;
 
-import androidx.databinding.DataBindingUtil;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.DiffUtil;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.DiffUtil;
 
 import com.charlezz.javaapp.BR;
 import com.charlezz.javaapp.R;
 import com.charlezz.javaapp.feature.base.BaseAdapter;
+import com.charlezz.javaapp.util.CommonDataBindingComponent;
+
+import javax.inject.Inject;
 
 public class PhotoAdapter extends BaseAdapter<Photo, LookUpViewHolder> {
     private static DiffUtil.ItemCallback<Photo> diffCallback = new DiffUtil.ItemCallback<Photo>() {
@@ -22,15 +26,20 @@ public class PhotoAdapter extends BaseAdapter<Photo, LookUpViewHolder> {
             return oldPhoto.equals(newPhoto);
         }
     };
-    protected PhotoAdapter() {
+
+    private final CommonDataBindingComponent commonDataBindingComponent;
+
+    @Inject
+    public PhotoAdapter(CommonDataBindingComponent commonDataBindingComponent) {
         super(diffCallback);
         setHasStableIds(true);
+        this.commonDataBindingComponent = commonDataBindingComponent;
     }
 
     @NonNull
     @Override
     public LookUpViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new LookUpViewHolder(DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()), R.layout.view_photo, viewGroup, false));
+        return new LookUpViewHolder(DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()), R.layout.view_photo, viewGroup, false, commonDataBindingComponent));
     }
 
     @Override

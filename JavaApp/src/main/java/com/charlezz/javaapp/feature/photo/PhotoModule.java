@@ -1,17 +1,19 @@
 package com.charlezz.javaapp.feature.photo;
 
-import androidx.databinding.DataBindingUtil;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 
-import com.charlezz.javaapp.R;
-import com.charlezz.javaapp.databinding.FragmentPhotoBinding;
-import com.charlezz.javaapp.di.FragmentScope;
-
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.selection.SelectionPredicates;
 import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.selection.StableIdKeyProvider;
 import androidx.recyclerview.selection.StorageStrategy;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.charlezz.javaapp.R;
+import com.charlezz.javaapp.databinding.FragmentPhotoBinding;
+import com.charlezz.javaapp.di.FragmentScope;
+import com.charlezz.javaapp.util.CommonDataBindingComponent;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -19,27 +21,14 @@ import dagger.Provides;
 public class PhotoModule {
     @FragmentScope
     @Provides
-    static FragmentPhotoBinding provideBinding(PhotoFragment fragment){
-        return DataBindingUtil.inflate(LayoutInflater.from(fragment.getContext()), R.layout.fragment_photo,null, false);
+    static FragmentPhotoBinding provideBinding(PhotoFragment fragment, CommonDataBindingComponent commonDataBindingComponent){
+        return DataBindingUtil.inflate(LayoutInflater.from(fragment.getContext()), R.layout.fragment_photo,null, false, commonDataBindingComponent);
     }
 
     @FragmentScope
     @Provides
     static RecyclerView provideRecyclerView(FragmentPhotoBinding binding){
         return binding.recyclerView;
-    }
-
-    @Provides
-    @FragmentScope
-    static PhotoAdapter provideAdapter(){
-        return new PhotoAdapter();
-    }
-
-
-    @Provides
-    @FragmentScope
-    static PhotoViewModel provideViewModel(PhotoFragment fragment, SelectionTracker<Long> selectionTracker){
-        return new PhotoViewModel(fragment.getContext(), selectionTracker);
     }
 
     @FragmentScope

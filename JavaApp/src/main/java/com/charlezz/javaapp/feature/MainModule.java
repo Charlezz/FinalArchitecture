@@ -1,14 +1,13 @@
 package com.charlezz.javaapp.feature;
 
-import androidx.lifecycle.ViewModelProviders;
 import androidx.databinding.DataBindingUtil;
 
 import com.charlezz.javaapp.R;
 import com.charlezz.javaapp.databinding.ActivityMainBinding;
 import com.charlezz.javaapp.di.ActivityScope;
 import com.charlezz.javaapp.di.FragmentScope;
-import com.charlezz.javaapp.feature.local.PersonFragment;
-import com.charlezz.javaapp.feature.local.PersonModule;
+import com.charlezz.javaapp.feature.local.UserFragment;
+import com.charlezz.javaapp.feature.local.UserModule;
 import com.charlezz.javaapp.feature.photo.PhotoFragment;
 import com.charlezz.javaapp.feature.photo.PhotoModule;
 import com.charlezz.javaapp.feature.remote.RemoteFragment;
@@ -17,13 +16,15 @@ import com.charlezz.javaapp.feature.remote.RemoteModule;
 import dagger.Module;
 import dagger.Provides;
 import dagger.android.ContributesAndroidInjector;
+import io.reactivex.disposables.CompositeDisposable;
 
 @Module
 public abstract class MainModule {
+
     @Provides
     @ActivityScope
-    static MainViewModel provideViewModel(MainActivity activity){
-        return ViewModelProviders.of(activity).get(MainViewModel.class);
+    static CompositeDisposable provideCompositeDisposable(){
+        return new CompositeDisposable();
     }
 
     @Provides
@@ -39,8 +40,8 @@ public abstract class MainModule {
     }
 
     @FragmentScope
-    @ContributesAndroidInjector(modules = PersonModule.class)
-    abstract PersonFragment personFragment();
+    @ContributesAndroidInjector(modules = UserModule.class)
+    abstract UserFragment personFragment();
 
     @FragmentScope
     @ContributesAndroidInjector(modules = RemoteModule.class)

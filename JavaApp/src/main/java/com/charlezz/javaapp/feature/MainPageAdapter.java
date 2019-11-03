@@ -6,10 +6,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import javax.inject.Inject;
+
 public class MainPageAdapter extends FragmentStatePagerAdapter {
     private Context context;
     public MainPageAdapter(Context context, FragmentManager fm) {
-        super(fm);
+        super(fm, FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         this.context = context;
     }
 

@@ -13,7 +13,7 @@
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:scrollbars="vertical"
-            bind:list="@{viewmodel.photoList}"
+            bind:pagedList="@{viewmodel.photoList}"
             android:layout_height="match_parent"/>
 </layout>
 

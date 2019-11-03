@@ -13,15 +13,15 @@ import javax.inject.Inject;
 
 import dagger.android.support.DaggerFragment;
 
-public class PersonFragment extends DaggerFragment {
+public class UserFragment extends DaggerFragment {
     @Inject
     FragmentPersonBinding binding;
 
     @Inject
-    PersonViewModel viewModel;
+    UserViewModel viewModel;
 
     @Inject
-    PersonAdapter adapter;
+    UserAdapter adapter;
 
     @Nullable
     @Override

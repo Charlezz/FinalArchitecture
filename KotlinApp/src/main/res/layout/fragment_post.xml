@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
-            bind:list="@{viewmodel.posts}"
+            bind:pagedList="@{viewmodel.posts}"
             bind:layout_constraintLeft_toLeftOf="parent"
             bind:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             bind:layout_constraintRight_toRightOf="parent"
