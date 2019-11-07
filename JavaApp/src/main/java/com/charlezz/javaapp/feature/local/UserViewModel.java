@@ -1,17 +1,18 @@
 package com.charlezz.javaapp.feature.local;
 
+import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
-import androidx.annotation.Nullable;
 
 import javax.inject.Inject;
 
 public class UserViewModel extends ViewModel {
 
+    public static final String TAG = UserViewModel.class.getSimpleName();
     private LiveData<PagedList<User>> persons;
     private MediatorLiveData<Boolean> isLoaded = new MediatorLiveData<>();
 
@@ -34,4 +35,5 @@ public class UserViewModel extends ViewModel {
     public LiveData<Boolean> isLoaded() {
         return isLoaded;
     }
+
 }

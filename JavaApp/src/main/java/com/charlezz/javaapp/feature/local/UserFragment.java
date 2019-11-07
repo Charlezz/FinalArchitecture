@@ -1,11 +1,12 @@
 package com.charlezz.javaapp.feature.local;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.charlezz.javaapp.databinding.FragmentPersonBinding;
 
@@ -14,6 +15,7 @@ import javax.inject.Inject;
 import dagger.android.support.DaggerFragment;
 
 public class UserFragment extends DaggerFragment {
+
     @Inject
     FragmentPersonBinding binding;
 
@@ -35,5 +37,6 @@ public class UserFragment extends DaggerFragment {
         binding.setLifecycleOwner(this);
         binding.recyclerView.setAdapter(adapter);
         binding.setViewmodel(viewModel);
+
     }
 }
