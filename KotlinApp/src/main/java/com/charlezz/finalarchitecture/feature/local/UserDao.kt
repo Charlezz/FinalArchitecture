@@ -6,7 +6,7 @@ import androidx.room.Query
 
 
 @Dao
-interface PersonDao {
+interface UserDao {
     @Query("SELECT * FROM person")
-    fun getPersonSource():DataSource.Factory<Int, Person>
+    fun getPersonSource():DataSource.Factory<Int, User>
 }

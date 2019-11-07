@@ -1,10 +1,9 @@
 package com.charlezz.finalarchitecture
 
-import com.charlezz.finalarchitecture.feature.local.DBHelper
-import com.charlezz.finalarchitecture.feature.local.PersonDao
+import com.charlezz.finalarchitecture.feature.local.UserDao
 import com.charlezz.finalarchitecture.feature.pref.PreferencesHelper
 import com.charlezz.finalarchitecture.feature.remote.ApiHelper
-import com.charlezz.finalarchitecture.feature.local.PersonFragmentViewModel
+import com.charlezz.finalarchitecture.feature.local.UserViewModel
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -24,10 +23,10 @@ class ExampleUnitTest {
     @Mock
     lateinit var DBHelper: DBHelper
 
-    lateinit var personViewModel: PersonFragmentViewModel
+    lateinit var personViewModel: UserViewModel
 
     @Mock
-    lateinit var personDao: PersonDao
+    lateinit var personDao: UserDao
 
     @Mock
     lateinit var preferencesHelper: PreferencesHelper

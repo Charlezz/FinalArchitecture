@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "person")
-data class Person
+data class User
 constructor(
         @PrimaryKey(autoGenerate = true)
         val id: Long,

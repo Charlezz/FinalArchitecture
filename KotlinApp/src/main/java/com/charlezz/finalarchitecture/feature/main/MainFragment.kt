@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.charlezz.finalarchitecture.databinding.FragmentMainBinding
-import com.charlezz.finalarchitecture.feature.local.PersonActivity
+import com.charlezz.finalarchitecture.feature.local.UserActivity
 import com.charlezz.finalarchitecture.feature.photo.PhotoActivity
 import com.charlezz.finalarchitecture.feature.pref.PrefActivity
 import com.charlezz.finalarchitecture.feature.remote.PostActivity
@@ -28,7 +28,7 @@ class MainFragment : DaggerFragment() {
         binding.viewmodel = viewmodel
         viewmodel.clickEvent.observe(this, Observer {
             when(it){
-                MainMenu.PERSON_ACTIVITY-> startActivity(Intent(activity, PersonActivity::class.java))
+                MainMenu.PERSON_ACTIVITY-> startActivity(Intent(activity, UserActivity::class.java))
                 MainMenu.POST_ACTIVITY->startActivity(Intent(activity, PostActivity::class.java))
                 MainMenu.PREFERENCE_ACTIVITY-> startActivity(Intent(activity, PrefActivity::class.java))
                 MainMenu.PHOTO_ACTIVITY->startActivity(Intent(activity, PhotoActivity::class.java))

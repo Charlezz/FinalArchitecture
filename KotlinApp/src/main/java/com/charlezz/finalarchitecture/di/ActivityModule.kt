@@ -1,11 +1,11 @@
 package com.charlezz.finalarchitecture.di
 
-import com.charlezz.finalarchitecture.feature.local.PersonActivityModule
+import com.charlezz.finalarchitecture.feature.local.UserModule
 import com.charlezz.finalarchitecture.feature.main.MainActivityModule
 import com.charlezz.finalarchitecture.feature.photo.PhotoActivityModule
 import com.charlezz.finalarchitecture.feature.pref.PrefActivityModule
 import com.charlezz.finalarchitecture.feature.remote.PostActivityModule
-import com.charlezz.finalarchitecture.feature.local.PersonActivity
+import com.charlezz.finalarchitecture.feature.local.UserActivity
 import com.charlezz.finalarchitecture.feature.main.MainActivity
 import com.charlezz.finalarchitecture.feature.photo.PhotoActivity
 import com.charlezz.finalarchitecture.feature.pref.PrefActivity
@@ -21,8 +21,8 @@ abstract class ActivityModule {
     abstract fun getMainActivity(): MainActivity
 
     @ActivityScope
-    @ContributesAndroidInjector(modules = [(PersonActivityModule::class)])
-    abstract fun getPersonActivity(): PersonActivity
+    @ContributesAndroidInjector(modules = [(UserModule::class)])
+    abstract fun getPersonActivity(): UserActivity
 
     @ActivityScope
     @ContributesAndroidInjector(modules = [(PostActivityModule::class)])

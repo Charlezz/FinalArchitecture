@@ -1,18 +1,16 @@
 package com.charlezz.finalarchitecture.di
 
 import android.app.Application
-import androidx.sqlite.db.SupportSQLiteDatabase
-import androidx.room.Room
-import androidx.room.RoomDatabase
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
+import androidx.room.Room
+import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.charlezz.finalarchitecture.App
 import com.charlezz.finalarchitecture.AppConstants
 import com.charlezz.finalarchitecture.feature.local.AppDatabase
-import com.charlezz.finalarchitecture.feature.local.DBHelper
-import com.charlezz.finalarchitecture.feature.local.DBHelperImpl
-import com.charlezz.finalarchitecture.feature.local.PersonDao
+import com.charlezz.finalarchitecture.feature.local.UserDao
 import com.charlezz.finalarchitecture.feature.photo.PhotoHelper
 import com.charlezz.finalarchitecture.feature.photo.PhotoHelperImpl
 import com.charlezz.finalarchitecture.feature.pref.PreferencesHelper
@@ -24,7 +22,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
-@Module
+@Module(includes = [ViewModelModule::class])
 class AppModule {
 
     @Provides
@@ -70,14 +68,8 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun providePersonDao(appDatabase: AppDatabase): PersonDao {
+    fun providePersonDao(appDatabase: AppDatabase): UserDao {
         return appDatabase.dao()
-    }
-
-    @Provides
-    @Singleton
-    fun provideDataManager(personDao: PersonDao): DBHelper {
-        return DBHelperImpl(personDao)
     }
 
     @Provides

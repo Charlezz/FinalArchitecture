@@ -20,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".feature.local.PersonActivity"></activity>
+        <activity android:name=".feature.local.UserActivity"></activity>
         <activity android:name=".feature.remote.PostActivity"></activity>
         <activity android:name=".feature.pref.PrefActivity"></activity>
         <activity android:name=".feature.photo.PhotoActivity"></activity>
