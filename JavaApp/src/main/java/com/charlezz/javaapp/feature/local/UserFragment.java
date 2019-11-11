@@ -32,16 +32,13 @@ public class UserFragment extends DaggerFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return binding.getRoot();
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
         viewModel = ViewModelProviders.of(this, factory).get(UserViewModel.class);
+        viewModel.load();
 
         binding.setLifecycleOwner(this);
         binding.recyclerView.setAdapter(adapter);
-        binding.setViewmodel(viewModel);
+        binding.setViewModel(viewModel);
+        return binding.getRoot();
     }
+
 }
