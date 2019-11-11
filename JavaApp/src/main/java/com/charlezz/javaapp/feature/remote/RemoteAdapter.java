@@ -11,12 +11,12 @@ import com.charlezz.javaapp.BR;
 import com.charlezz.javaapp.R;
 import com.charlezz.javaapp.databinding.ViewPostBinding;
 import com.charlezz.javaapp.di.FragmentScope;
-import com.charlezz.javaapp.feature.base.BaseAdapter;
+import com.charlezz.javaapp.feature.base.BindingPagedListAdapter;
 
 import javax.inject.Inject;
 
 @FragmentScope
-public class RemoteAdapter extends BaseAdapter<Post, RemoteViewHolder> {
+public class RemoteAdapter extends BindingPagedListAdapter<Post, RemoteViewBindingHolder> {
 
     private static DiffUtil.ItemCallback<Post> diffCallback= new DiffUtil.ItemCallback<Post>() {
         @Override
@@ -40,8 +40,8 @@ public class RemoteAdapter extends BaseAdapter<Post, RemoteViewHolder> {
 
     @NonNull
     @Override
-    public RemoteViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new RemoteViewHolder((ViewPostBinding) DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()), R.layout.view_post, viewGroup, false));
+    public RemoteViewBindingHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        return new RemoteViewBindingHolder((ViewPostBinding) DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()), R.layout.view_post, viewGroup, false));
     }
 
     @NonNull

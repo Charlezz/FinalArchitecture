@@ -9,12 +9,12 @@ import androidx.recyclerview.widget.DiffUtil;
 
 import com.charlezz.javaapp.BR;
 import com.charlezz.javaapp.R;
-import com.charlezz.javaapp.feature.base.BaseAdapter;
+import com.charlezz.javaapp.feature.base.BindingPagedListAdapter;
 import com.charlezz.javaapp.util.CommonDataBindingComponent;
 
 import javax.inject.Inject;
 
-public class PhotoAdapter extends BaseAdapter<Photo, LookUpViewHolder> {
+public class PhotoAdapter extends BindingPagedListAdapter<Photo, LookUpViewBindingHolder> {
     private static DiffUtil.ItemCallback<Photo> diffCallback = new DiffUtil.ItemCallback<Photo>() {
         @Override
         public boolean areItemsTheSame(@NonNull Photo oldPhoto, @NonNull Photo newPhoto) {
@@ -38,8 +38,8 @@ public class PhotoAdapter extends BaseAdapter<Photo, LookUpViewHolder> {
 
     @NonNull
     @Override
-    public LookUpViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new LookUpViewHolder(DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()), R.layout.view_photo, viewGroup, false, commonDataBindingComponent));
+    public LookUpViewBindingHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        return new LookUpViewBindingHolder(DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()), R.layout.view_photo, viewGroup, false, commonDataBindingComponent));
     }
 
     @Override

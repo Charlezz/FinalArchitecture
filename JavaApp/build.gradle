@@ -28,6 +28,10 @@ android {
             options.compilerArgs << "-Xmaxerrs" << "500" // or whatever number you want
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 
 }
 
@@ -70,13 +74,12 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
 
     //rxjava
-    implementation "io.reactivex.rxjava2:rxjava:2.2.9"
+    implementation "io.reactivex.rxjava2:rxjava:2.2.13"
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
 
     //glide
-    def glide_version = "4.9.0"
-    implementation "com.github.bumptech.glide:glide:$glide_version"
-    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+    implementation "com.github.bumptech.glide:glide:4.10.0"
+    annotationProcessor "com.github.bumptech.glide:compiler:4.10.0"
 
     //paging
     implementation 'androidx.paging:paging-runtime:2.1.0'
@@ -93,4 +96,5 @@ dependencies {
 
     //seletion
     implementation 'androidx.recyclerview:recyclerview-selection:1.0.0'
+
 }

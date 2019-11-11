@@ -11,13 +11,13 @@ import com.charlezz.javaapp.BR;
 import com.charlezz.javaapp.R;
 import com.charlezz.javaapp.databinding.ViewPersonBinding;
 import com.charlezz.javaapp.di.FragmentScope;
-import com.charlezz.javaapp.feature.base.BaseAdapter;
-import com.charlezz.javaapp.feature.base.BaseViewHolder;
+import com.charlezz.javaapp.feature.base.BindingPagedListAdapter;
+import com.charlezz.javaapp.feature.base.ViewBindingHolder;
 
 import javax.inject.Inject;
 
 @FragmentScope
-public class UserAdapter extends BaseAdapter<User, UserAdapter.PersonViewHolder> {
+public class UserAdapter extends BindingPagedListAdapter<User, UserAdapter.PersonViewBindingHolder> {
     private static DiffUtil.ItemCallback<User> diffCallback = new DiffUtil.ItemCallback<User>() {
         @Override
         public boolean areItemsTheSame(@NonNull User oldItem, @NonNull User newItem) {
@@ -38,8 +38,8 @@ public class UserAdapter extends BaseAdapter<User, UserAdapter.PersonViewHolder>
 
     @NonNull
     @Override
-    public PersonViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new PersonViewHolder((ViewPersonBinding) DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()), R.layout.view_person, viewGroup, false));
+    public PersonViewBindingHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        return new PersonViewBindingHolder(DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()), R.layout.view_person, viewGroup, false));
     }
 
     @NonNull
@@ -48,9 +48,9 @@ public class UserAdapter extends BaseAdapter<User, UserAdapter.PersonViewHolder>
         return BR.data;
     }
 
-    static class PersonViewHolder extends BaseViewHolder<ViewPersonBinding> {
+    static class PersonViewBindingHolder extends ViewBindingHolder<ViewPersonBinding> {
 
-        public PersonViewHolder(@NonNull ViewPersonBinding binding) {
+        public PersonViewBindingHolder(@NonNull ViewPersonBinding binding) {
             super(binding);
         }
     }

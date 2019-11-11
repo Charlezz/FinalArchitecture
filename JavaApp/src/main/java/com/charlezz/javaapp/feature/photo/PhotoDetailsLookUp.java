@@ -19,7 +19,7 @@ public class PhotoDetailsLookUp extends ItemDetailsLookup<Long> {
     public ItemDetails<Long> getItemDetails(@NonNull MotionEvent motionEvent) {
         View view = recyclerView.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
         if (view != null) {
-            LookUpViewHolder viewHolder = (LookUpViewHolder) recyclerView.getChildViewHolder(view);
+            LookUpViewBindingHolder viewHolder = (LookUpViewBindingHolder) recyclerView.getChildViewHolder(view);
             return viewHolder.getItemDetails();
         }
         return null;

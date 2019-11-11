@@ -7,8 +7,10 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.charlezz.javaapp.databinding.FragmentPersonBinding;
+import com.charlezz.javaapp.di.AppViewModelFactory;
 
 import javax.inject.Inject;
 
@@ -20,10 +22,12 @@ public class UserFragment extends DaggerFragment {
     FragmentPersonBinding binding;
 
     @Inject
-    UserViewModel viewModel;
+    UserAdapter adapter;
 
     @Inject
-    UserAdapter adapter;
+    AppViewModelFactory factory;
+
+    UserViewModel viewModel;
 
     @Nullable
     @Override
@@ -34,9 +38,10 @@ public class UserFragment extends DaggerFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        viewModel = ViewModelProviders.of(this, factory).get(UserViewModel.class);
+
         binding.setLifecycleOwner(this);
         binding.recyclerView.setAdapter(adapter);
         binding.setViewmodel(viewModel);
-
     }
 }

@@ -4,9 +4,9 @@ import androidx.paging.PagedListAdapter;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 
-public abstract class BaseAdapter<D, VH extends BaseViewHolder> extends PagedListAdapter<D, VH> {
+public abstract class BindingPagedListAdapter<D, VH extends ViewBindingHolder> extends PagedListAdapter<D, VH> {
 
-    protected BaseAdapter(@NonNull DiffUtil.ItemCallback<D> diffCallback) {
+    protected BindingPagedListAdapter(@NonNull DiffUtil.ItemCallback<D> diffCallback) {
         super(diffCallback);
     }
 

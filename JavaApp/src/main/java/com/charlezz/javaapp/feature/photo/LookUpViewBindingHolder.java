@@ -5,13 +5,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import android.view.MotionEvent;
 
-import com.charlezz.javaapp.feature.base.BaseViewHolder;
+import com.charlezz.javaapp.feature.base.ViewBindingHolder;
 
 import androidx.recyclerview.selection.ItemDetailsLookup;
 
-public class LookUpViewHolder extends BaseViewHolder {
+public class LookUpViewBindingHolder extends ViewBindingHolder {
 
-    public LookUpViewHolder(@NonNull ViewDataBinding binding) {
+    public LookUpViewBindingHolder(@NonNull ViewDataBinding binding) {
         super(binding);
     }
 

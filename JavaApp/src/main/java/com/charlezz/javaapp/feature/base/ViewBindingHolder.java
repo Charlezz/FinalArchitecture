@@ -4,9 +4,9 @@ import androidx.databinding.ViewDataBinding;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class BaseViewHolder<VDB extends ViewDataBinding> extends RecyclerView.ViewHolder {
+public class ViewBindingHolder<VDB extends ViewDataBinding> extends RecyclerView.ViewHolder {
     private VDB binding;
-    public BaseViewHolder(@NonNull VDB binding) {
+    public ViewBindingHolder(@NonNull VDB binding) {
         super(binding.getRoot());
         this.binding = binding;
     }
