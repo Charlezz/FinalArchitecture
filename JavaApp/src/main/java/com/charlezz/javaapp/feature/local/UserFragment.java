@@ -38,6 +38,7 @@ public class UserFragment extends DaggerFragment {
         binding.setLifecycleOwner(this);
         binding.recyclerView.setAdapter(adapter);
         binding.setViewModel(viewModel);
+
         return binding.getRoot();
     }
 

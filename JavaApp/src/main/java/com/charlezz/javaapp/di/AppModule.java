@@ -61,7 +61,7 @@ public class AppModule {
                     @Override
                     public void onCreate(@NonNull SupportSQLiteDatabase db) {
                         super.onCreate(db);
-                        for( int i =0; i< 1000;i++){
+                        for( int i =0; i< 10000;i++){
                             ContentValues cv = new ContentValues();
                             cv.put("name", String.format(Locale.getDefault(),"Name %d", i));
                             cv.put("birth" ,String.format(Locale.getDefault(),"Birth %d", i));

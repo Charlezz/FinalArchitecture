@@ -17,7 +17,7 @@ public abstract class UserModule {
     @Provides
     @FragmentScope
     static FragmentPersonBinding provideBinding(UserFragment fragment, CommonDataBindingComponent commonDataBindingComponent){
-        return DataBindingUtil.inflate(LayoutInflater.from(fragment.getContext()), R.layout.fragment_person, null, false, commonDataBindingComponent);
+        return DataBindingUtil.inflate(LayoutInflater.from(fragment.getContext()), R.layout.fragment_user, null, false, commonDataBindingComponent);
     }
 
 }

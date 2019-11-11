@@ -18,7 +18,7 @@ public class UserViewModel extends ViewModel {
     }
 
     public void load(){
-        users = new LivePagedListBuilder<>(userDao.getUsers(),20).build();
+        users = new LivePagedListBuilder<>(userDao.getUsers(),10).build();
     }
 
     public LiveData<PagedList<User>> getUsers() {

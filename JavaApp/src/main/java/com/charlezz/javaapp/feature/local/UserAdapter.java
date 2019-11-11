@@ -39,7 +39,7 @@ public class UserAdapter extends BindingPagedListAdapter<User, UserAdapter.Perso
     @NonNull
     @Override
     public PersonViewBindingHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new PersonViewBindingHolder(DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()), R.layout.view_person, viewGroup, false));
+        return new PersonViewBindingHolder(DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()), R.layout.view_user, viewGroup, false));
     }
 
     @NonNull
