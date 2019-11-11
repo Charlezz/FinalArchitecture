@@ -14,8 +14,7 @@ public class User {
     @NonNull
     private String birth;
 
-    public User(long id, @NonNull String name, @NonNull String birth) {
-        this.id = id;
+    public User(@NonNull String name, @NonNull String birth) {
         this.name = name;
         this.birth = birth;
     }

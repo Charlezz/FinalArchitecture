@@ -25,4 +25,9 @@ public class UserViewModel extends ViewModel {
         return users;
     }
 
+    public void generate(){
+        new Thread(() -> userDao.insertUser(new User("Runa",String.valueOf(System.currentTimeMillis())))).start();
+
+    }
+
 }

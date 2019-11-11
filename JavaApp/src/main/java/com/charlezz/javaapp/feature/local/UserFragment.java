@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.charlezz.javaapp.databinding.FragmentPersonBinding;
+import com.charlezz.javaapp.databinding.FragmentUserBinding;
 import com.charlezz.javaapp.di.AppViewModelFactory;
 
 import javax.inject.Inject;
@@ -19,7 +19,7 @@ import dagger.android.support.DaggerFragment;
 public class UserFragment extends DaggerFragment {
 
     @Inject
-    FragmentPersonBinding binding;
+    FragmentUserBinding binding;
 
     @Inject
     UserAdapter adapter;
@@ -35,11 +35,13 @@ public class UserFragment extends DaggerFragment {
         viewModel = ViewModelProviders.of(this, factory).get(UserViewModel.class);
         viewModel.load();
 
-        binding.setLifecycleOwner(this);
+        binding.setLifecycleOwner(getViewLifecycleOwner());
         binding.recyclerView.setAdapter(adapter);
         binding.setViewModel(viewModel);
 
+        viewModel.getUsers().observe(getViewLifecycleOwner(),
+                users -> adapter.submitList(users));
+
         return binding.getRoot();
     }
-
 }

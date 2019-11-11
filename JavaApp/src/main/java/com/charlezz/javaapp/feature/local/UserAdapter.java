@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.DiffUtil;
 
 import com.charlezz.javaapp.BR;
 import com.charlezz.javaapp.R;
-import com.charlezz.javaapp.databinding.ViewPersonBinding;
+import com.charlezz.javaapp.databinding.ViewUserBinding;
 import com.charlezz.javaapp.di.FragmentScope;
 import com.charlezz.javaapp.feature.base.BindingPagedListAdapter;
 import com.charlezz.javaapp.feature.base.ViewBindingHolder;
@@ -48,9 +48,9 @@ public class UserAdapter extends BindingPagedListAdapter<User, UserAdapter.Perso
         return BR.data;
     }
 
-    static class PersonViewBindingHolder extends ViewBindingHolder<ViewPersonBinding> {
+    static class PersonViewBindingHolder extends ViewBindingHolder<ViewUserBinding> {
 
-        public PersonViewBindingHolder(@NonNull ViewPersonBinding binding) {
+        public PersonViewBindingHolder(@NonNull ViewUserBinding binding) {
             super(binding);
         }
     }
