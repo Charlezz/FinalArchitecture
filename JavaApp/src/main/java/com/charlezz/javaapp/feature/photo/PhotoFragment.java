@@ -1,18 +1,19 @@
 package com.charlezz.javaapp.feature.photo;
 
-import javax.inject.Inject;
-
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.GridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.selection.SelectionTracker;
+import androidx.recyclerview.widget.GridLayoutManager;
+
 import com.charlezz.javaapp.databinding.FragmentPhotoBinding;
 
-import androidx.recyclerview.selection.SelectionTracker;
+import javax.inject.Inject;
+
 import dagger.android.support.DaggerFragment;
 
 public class PhotoFragment extends DaggerFragment {

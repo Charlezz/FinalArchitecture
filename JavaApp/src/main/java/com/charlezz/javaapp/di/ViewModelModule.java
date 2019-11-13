@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.charlezz.javaapp.feature.local.UserViewModel;
+import com.charlezz.javaapp.feature.remote.RemoteViewModel;
 
 import dagger.Binds;
 import dagger.Module;
@@ -18,6 +19,11 @@ public abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(UserViewModel.class)
-    abstract ViewModel bindsViewModel(UserViewModel userViewModel);
+    abstract ViewModel bindsUserViewModel(UserViewModel userViewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(RemoteViewModel.class)
+    abstract ViewModel bindsRemoteViewModel(RemoteViewModel remoteViewModel);
 
 }

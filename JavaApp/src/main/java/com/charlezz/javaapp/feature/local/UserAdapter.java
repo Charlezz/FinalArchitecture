@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.DiffUtil;
 
 import com.charlezz.javaapp.BR;
 import com.charlezz.javaapp.R;
-import com.charlezz.javaapp.databinding.ViewUserBinding;
 import com.charlezz.javaapp.di.FragmentScope;
 import com.charlezz.javaapp.feature.base.BindingPagedListAdapter;
 import com.charlezz.javaapp.feature.base.ViewBindingHolder;
@@ -17,7 +16,8 @@ import com.charlezz.javaapp.feature.base.ViewBindingHolder;
 import javax.inject.Inject;
 
 @FragmentScope
-public class UserAdapter extends BindingPagedListAdapter<User, UserAdapter.PersonViewBindingHolder> {
+@SuppressWarnings("unchecked")
+public class UserAdapter extends BindingPagedListAdapter {
     private static DiffUtil.ItemCallback<User> diffCallback = new DiffUtil.ItemCallback<User>() {
         @Override
         public boolean areItemsTheSame(@NonNull User oldItem, @NonNull User newItem) {
@@ -38,8 +38,8 @@ public class UserAdapter extends BindingPagedListAdapter<User, UserAdapter.Perso
 
     @NonNull
     @Override
-    public PersonViewBindingHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new PersonViewBindingHolder(DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()), R.layout.view_user, viewGroup, false));
+    public ViewBindingHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        return new ViewBindingHolder(DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()), R.layout.view_user, viewGroup, false));
     }
 
     @NonNull
@@ -48,10 +48,4 @@ public class UserAdapter extends BindingPagedListAdapter<User, UserAdapter.Perso
         return BR.data;
     }
 
-    static class PersonViewBindingHolder extends ViewBindingHolder<ViewUserBinding> {
-
-        public PersonViewBindingHolder(@NonNull ViewUserBinding binding) {
-            super(binding);
-        }
-    }
 }

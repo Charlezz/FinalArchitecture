@@ -9,14 +9,15 @@ import androidx.recyclerview.widget.DiffUtil;
 
 import com.charlezz.javaapp.BR;
 import com.charlezz.javaapp.R;
-import com.charlezz.javaapp.databinding.ViewPostBinding;
 import com.charlezz.javaapp.di.FragmentScope;
 import com.charlezz.javaapp.feature.base.BindingPagedListAdapter;
+import com.charlezz.javaapp.feature.base.ViewBindingHolder;
 
 import javax.inject.Inject;
 
 @FragmentScope
-public class RemoteAdapter extends BindingPagedListAdapter<Post, RemoteViewBindingHolder> {
+@SuppressWarnings("unchecked")
+public class RemoteAdapter extends BindingPagedListAdapter{
 
     private static DiffUtil.ItemCallback<Post> diffCallback= new DiffUtil.ItemCallback<Post>() {
         @Override
@@ -38,10 +39,11 @@ public class RemoteAdapter extends BindingPagedListAdapter<Post, RemoteViewBindi
         super(diffCallback);
     }
 
+    @SuppressWarnings("unchecked")
     @NonNull
     @Override
-    public RemoteViewBindingHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new RemoteViewBindingHolder((ViewPostBinding) DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()), R.layout.view_post, viewGroup, false));
+    public ViewBindingHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        return new ViewBindingHolder(DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()), R.layout.view_post, viewGroup, false));
     }
 
     @NonNull

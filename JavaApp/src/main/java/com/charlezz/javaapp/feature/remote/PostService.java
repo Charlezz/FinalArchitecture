@@ -9,4 +9,7 @@ import retrofit2.http.Query;
 public interface PostService {
     @GET("posts")
     Call<List<Post>> getPosts(@Query("_page") int page);
+
+    @GET("posts?_page=1")
+    Call<List<Post>> getTopPosts();
 }

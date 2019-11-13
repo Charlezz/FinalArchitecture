@@ -19,8 +19,6 @@ import io.reactivex.Observable;
 import io.reactivex.Single;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.BiConsumer;
-import io.reactivex.functions.Predicate;
 
 public class MainActivity extends DaggerAppCompatActivity {
     @Inject
@@ -53,16 +51,13 @@ public class MainActivity extends DaggerAppCompatActivity {
     }
 
     private void reqPermissions(Single<List<String>> list) {
-        Disposable disposal = list.subscribe(new BiConsumer<List<String>, Throwable>() {
-            @Override
-            public void accept(List<String> strings, Throwable throwable) throws Exception {
-                if (!strings.isEmpty()) {
-                    String[] tempPermissions = new String[strings.size()];
-                    strings.toArray(tempPermissions);
-                    ActivityCompat.requestPermissions(MainActivity.this, tempPermissions, REQUEST_PERMISSION_CODE);
-                } else {
-                    init();
-                }
+        Disposable disposal = list.subscribe((strings, throwable) -> {
+            if (!strings.isEmpty()) {
+                String[] tempPermissions = new String[strings.size()];
+                strings.toArray(tempPermissions);
+                ActivityCompat.requestPermissions(MainActivity.this, tempPermissions, REQUEST_PERMISSION_CODE);
+            } else {
+                init();
             }
         });
         disposables.add(disposal);
@@ -91,11 +86,6 @@ public class MainActivity extends DaggerAppCompatActivity {
     }
 
     private Single<List<String>> getPermissionList(String[] permissions)  {
-        return Observable.fromArray(permissions).filter(new Predicate<String>() {
-            @Override
-            public boolean test(String permission) throws Exception {
-                return PackageManager.PERMISSION_GRANTED != ActivityCompat.checkSelfPermission(MainActivity.this, permission);
-            }
-        }).toList();
+        return Observable.fromArray(permissions).filter(permission -> PackageManager.PERMISSION_GRANTED != ActivityCompat.checkSelfPermission(MainActivity.this, permission)).toList();
     }
 }

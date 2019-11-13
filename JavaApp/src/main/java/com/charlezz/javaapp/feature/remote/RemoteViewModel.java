@@ -5,12 +5,9 @@ import androidx.lifecycle.ViewModel;
 import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
 
-import com.charlezz.javaapp.di.FragmentScope;
-
 import javax.inject.Inject;
 
 import io.reactivex.disposables.CompositeDisposable;
-@FragmentScope
 public class RemoteViewModel extends ViewModel {
 
     private PostDataSourceFactory factory;

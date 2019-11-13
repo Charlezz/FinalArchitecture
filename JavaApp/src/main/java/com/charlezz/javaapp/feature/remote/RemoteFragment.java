@@ -1,14 +1,17 @@
 package com.charlezz.javaapp.feature.remote;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 import com.charlezz.javaapp.databinding.FragmentRemoteBinding;
+import com.charlezz.javaapp.di.AppViewModelFactory;
 
 import javax.inject.Inject;
 
@@ -16,35 +19,28 @@ import dagger.android.support.DaggerFragment;
 
 public class RemoteFragment extends DaggerFragment {
 
-    public static final String TAG = RemoteFragment.class.getSimpleName();
-
     @Inject
     FragmentRemoteBinding binding;
 
     @Inject
-    RemoteViewModel viewModel;
+    AppViewModelFactory viewModelFactory;
 
     @Inject
     RemoteAdapter adapter;
 
+    RemoteViewModel viewModel;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(RemoteViewModel.class);
+        viewModel.loadData();
+
+        binding.setLifecycleOwner(getViewLifecycleOwner());
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
+        binding.recyclerView.setAdapter(adapter);
+        binding.setViewmodel(viewModel);
         return binding.getRoot();
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        binding.setLifecycleOwner(this);
-        binding.recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        binding.recyclerView.setAdapter(adapter);
-        binding.setViewmodel(viewModel);
-        viewModel.loadData();
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
 }

@@ -13,10 +13,10 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module
-public abstract class UserModule {
+public  class UserModule {
     @Provides
     @FragmentScope
-    static FragmentUserBinding provideBinding(UserFragment fragment, CommonDataBindingComponent commonDataBindingComponent){
+    FragmentUserBinding provideBinding(UserFragment fragment, CommonDataBindingComponent commonDataBindingComponent){
         return DataBindingUtil.inflate(LayoutInflater.from(fragment.getContext()), R.layout.fragment_user, null, false, commonDataBindingComponent);
     }
 
