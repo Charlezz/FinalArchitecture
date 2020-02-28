@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.DiffUtil;
 
 import com.charlezz.javaapp.BR;
 import com.charlezz.javaapp.R;
-import com.charlezz.javaapp.di.FragmentScope;
+import com.charlezz.javaapp.di.scope.FragmentScope;
 import com.charlezz.javaapp.feature.base.BindingPagedListAdapter;
 import com.charlezz.javaapp.feature.base.ViewBindingHolder;
 

@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil;
 
 import com.charlezz.javaapp.R;
 import com.charlezz.javaapp.databinding.FragmentRemoteBinding;
-import com.charlezz.javaapp.di.FragmentScope;
+import com.charlezz.javaapp.di.scope.FragmentScope;
 import com.charlezz.javaapp.util.CommonDataBindingComponent;
 
 import dagger.Module;

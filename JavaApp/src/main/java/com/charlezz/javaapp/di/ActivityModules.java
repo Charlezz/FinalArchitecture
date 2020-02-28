@@ -1,5 +1,6 @@
 package com.charlezz.javaapp.di;
 
+import com.charlezz.javaapp.di.scope.ActivityScope;
 import com.charlezz.javaapp.feature.MainActivity;
 import com.charlezz.javaapp.feature.MainModule;
 

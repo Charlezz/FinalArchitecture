@@ -4,8 +4,8 @@ import androidx.databinding.DataBindingUtil;
 
 import com.charlezz.javaapp.R;
 import com.charlezz.javaapp.databinding.ActivityMainBinding;
-import com.charlezz.javaapp.di.ActivityScope;
-import com.charlezz.javaapp.di.FragmentScope;
+import com.charlezz.javaapp.di.scope.ActivityScope;
+import com.charlezz.javaapp.di.scope.FragmentScope;
 import com.charlezz.javaapp.feature.local.UserFragment;
 import com.charlezz.javaapp.feature.local.UserModule;
 import com.charlezz.javaapp.feature.photo.PhotoFragment;

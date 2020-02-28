@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.charlezz.javaapp.R;
 import com.charlezz.javaapp.databinding.FragmentPhotoBinding;
-import com.charlezz.javaapp.di.FragmentScope;
+import com.charlezz.javaapp.di.scope.FragmentScope;
 import com.charlezz.javaapp.util.CommonDataBindingComponent;
 
 import dagger.Module;
