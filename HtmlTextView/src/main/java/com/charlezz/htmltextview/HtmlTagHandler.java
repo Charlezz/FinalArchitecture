@@ -156,24 +156,33 @@ public class HtmlTagHandler implements WrapperTagHandler {
 
         private IFrame(String src){
             this.src = src;
-            for(Type type:Type.values()){
-                if(src.contains(type.baseUrl)){
-                    this.type = type;
-                    break;
-                }
-            }
-
+            this.type = Type.findType(src);
         }
 
         enum Type{
+            UNKNOWN("[Unknown iframe]",""),
             GIPHY("GIPHY","https://giphy.com/"),
-            YOUTUBE("Youtube","https://www.youtube.com/");
+            YOUTUBE("Youtube","https://www.youtube.com/"),
+            NAVER_TV("NaverTV", "https://tv.naver.com")
+            ;
 
             private String baseUrl;
             private String name;
             Type(String name, String baseUrl){
                 this.baseUrl = baseUrl;
                 this.name = name;
+            }
+
+            private static Type findType(String src){
+                for(Type type:Type.values()){
+                    if(type == UNKNOWN){
+                        continue;
+                    }
+                    if(src.contains(type.baseUrl)){
+                        return type;
+                    }
+                }
+                return UNKNOWN;
             }
         }
     }
