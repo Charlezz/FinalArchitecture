@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#A3F7AA</color>
+    <color name="colorPrimaryDark">#BBF599</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="header_gradient_01">@color/colorPrimary</color>
+    <color name="header_gradient_02">@color/colorPrimaryDark</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="tag_01">#DF5241</color>
+    <color name="tag_02">#D53964</color>
+    <color name="tag_03">#F09C38</color>
+    <color name="tag_04">#69AC5B</color>
+    <color name="tag_05">#57B9D1</color>
+    <color name="tag_06">#7D2D96</color>
+</resources>

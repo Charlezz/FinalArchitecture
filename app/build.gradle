@@ -1,0 +1,86 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+android {
+    compileSdkVersion build_versions.compile_sdk
+    defaultConfig {
+        applicationId "com.charlezz.android"
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 2
+        versionName "1.0.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments += ["dagger.hilt.disableModulesHaveInstallInCheck": "true"]
+//            }
+//        }
+    }
+    buildTypes {
+        debug {
+            versionNameSuffix "." + name + "." + getDateText()
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding.enabled = true
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xmaxerrs" << "1000" // or whatever number you want
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+}
+kapt {
+    correctErrorTypes = true
+}
+
+dependencies {
+    implementation project(path: ':core')
+    //room
+    kapt deps.room.compiler
+
+    //hilt
+    implementation deps.hilt.runtime
+    kapt deps.hilt.compiler
+    kapt deps.hilt_android.compiler
+
+    //glide
+    kapt deps.glide.compiler
+
+    //test
+    testImplementation deps.junit
+    testImplementation deps.mockito.core
+    androidTestImplementation deps.atsl.runner
+    androidTestImplementation deps.espresso.core
+
+    // For instrumentation tests
+    androidTestImplementation deps.hilt.android_testing
+    kaptAndroidTest deps.hilt.android_testing_compiler
+
+    // For local unit tests
+    testImplementation deps.hilt.android_testing
+    kaptTest deps.hilt.android_testing_compiler
+
+}
+
+static def getDateText() {
+    def date = new Date()
+    def formattedDateText = date.format("MMddHHmm")
+    return formattedDateText
+}

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="viewModel"
+                type="com.charlezz.android.feature.detail.PostDetailViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="false">
+
+        <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/app_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/app_bar_height">
+
+            <com.charlezz.android.core.CollapsibleToolbar
+                    android:id="@+id/motionLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:minHeight="50dp"
+                    app:layoutDescription="@xml/post_detail_header_scene"
+                    app:layout_scrollFlags="scroll|enterAlways|snap|exitUntilCollapsed">
+
+                <ImageView
+                        android:id="@+id/background"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:background="@drawable/post_detail_header_background"
+                        android:contentDescription="TODO"
+                        android:scaleType="centerCrop" />
+
+                <TextView
+                        android:id="@+id/expanded_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:text="@{viewModel.title}"
+                        android:textColor="#FFF"
+                        android:textSize="@dimen/size_header3"
+                        tools:text="Hello World!" />
+
+
+                <ImageView
+                        android:id="@+id/back"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:onClick="@{v->viewModel.onBackClick()}"
+                        android:padding="8dp"
+                        android:src="@drawable/arrow_back_24px"
+                        app:tint="@color/white" />
+
+                <ImageView
+                        android:id="@+id/open_in_new"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:onClick="@{v->viewModel.optionMenuClick()}"
+                        android:padding="10dp"
+                        android:src="@drawable/open_in_new_24px"
+                        app:tint="@color/white" />
+
+            </com.charlezz.android.core.CollapsibleToolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+                android:id="@+id/scrollable"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_anchor="@+id/scrollable"
+                app:layout_anchorGravity="center"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <TextView
+                    android:id="@+id/content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="vertical"
+                    app:applyText="@{viewModel.content}"
+                    app:padding="@{viewModel.CONTENT_VIEW_PADDING}"
+                    app:invalidate="@{viewModel.invalidateEvent}"
+                    tools:text="@string/large_text" />
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

@@ -1,0 +1,49 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="258dp"
+    android:height="258dp"
+    android:viewportWidth="258"
+    android:viewportHeight="258">
+  <!--육각 라인-->
+  <path
+      android:pathData="M128.661,2.084L238.28,65.373L238.28,191.95L128.661,255.239L19.041,191.95L19.041,65.373L128.661,2.084Z"
+      android:strokeWidth="4"
+      android:fillColor="#00FF9C"
+      android:strokeColor="#000000"/>
+  <!--페이스라인-->
+  <path
+      android:pathData="M64.978,128.936C64.978,128.548 64.978,128.16 64.978,127.774C64.98,94.792 94.183,68.063 130.221,68.06C166.26,68.063 195.463,94.79 195.466,127.774C195.466,147.29 195.466,166.807 195.466,186.325C195.466,186.713 195.466,187.101 195.466,187.486C195.042,187.486 194.621,187.486 194.197,187.486C151.546,187.486 108.895,187.486 66.247,187.486C65.823,187.486 65.399,187.486 64.978,187.486C64.978,187.101 64.978,186.713 64.978,186.325C64.978,166.83 64.978,147.334 64.978,127.839"
+      android:strokeWidth="4"
+      android:fillColor="#ffffff"
+      android:strokeColor="#000000"
+      android:strokeLineCap="butt"/>
+  <!--왼쪽 귀-->
+  <path
+      android:pathData="M83.324,67.752C78.478,62.083 73.301,58.549 71.766,59.864C70.227,61.178 72.909,66.84 77.754,72.513C80.679,75.935 83.607,79.358 86.532,82.78C88.387,81.192 90.245,79.608 92.102,78.02C89.174,74.597 86.249,71.175 83.324,67.752Z"
+      android:strokeLineJoin="miter"
+      android:strokeWidth="4"
+      android:fillColor="#ffffff"
+      android:strokeColor="#000000"
+      android:strokeLineCap="butt"/>
+  <!--오른쪽 귀-->
+  <path
+      android:pathData="M182.254,72.462C186.914,66.64 189.414,60.891 187.835,59.63C186.255,58.365 181.197,62.061 176.533,67.884C173.72,71.399 170.907,74.917 168.094,78.432C170.001,79.956 171.906,81.483 173.814,83.01C176.627,79.492 179.44,75.977 182.254,72.462Z"
+      android:strokeLineJoin="miter"
+      android:strokeWidth="4"
+      android:fillColor="#ffffff"
+      android:strokeColor="#000000"
+      android:strokeLineCap="butt"/>
+  <!--오른쪽 눈-->
+  <path
+      android:pathData="M155.092,111.267m-8.875,-0a8.875,8.875 0,1 0,17.751 -0a8.875,8.875 0,1 0,-17.751 -0"
+      android:strokeWidth="4"
+      android:fillColor="#00FFA7"
+      android:strokeColor="#000000"
+      android:strokeLineCap="butt"/>
+  <!--쪽 눈-->
+  <path
+      android:pathData="M105.877,112.148m-8.875,-0a8.875,8.875 0,1 0,17.751 -0a8.875,8.875 0,1 0,-17.751 -0"
+      android:strokeWidth="4"
+      android:fillColor="#00FFA7"
+      android:strokeColor="#000000"
+      android:strokeLineCap="butt"/>
+</vector>

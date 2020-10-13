@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="post_dialog_items">
+
+        <item>@string/show_from_webview</item>
+        <item>@string/share_via_kakaotalk</item>
+        <item>@string/share_via_email</item>
+        <item>@string/share_via_sms</item>
+        <item>@string/copy_to_clipboard</item>
+    </string-array>
+</resources>

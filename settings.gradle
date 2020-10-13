@@ -1,1 +1,4 @@
-include ':KotlinApp', ':JavaApp', ':MVCSample', ':MVPSample', ':MVVMSample'
+include ':HtmlTextView'
+include ':core'
+include ':app'
+include ':JavaApp', ':MVCSample', ':MVPSample', ':MVVMSample'

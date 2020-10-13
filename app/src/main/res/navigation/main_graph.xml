@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main_graph"
+        app:startDestination="@id/splashFragment">
+    <fragment
+            android:id="@+id/splashFragment"
+            android:name="com.charlezz.android.feature.splash.SplashFragment"
+            android:label="SplashFragment"
+            tools:layout="@layout/fragment_splash">
+        <action
+                android:id="@+id/action_splashFragment_to_post"
+                app:destination="@id/postFragment"
+                app:popUpTo="@id/splashFragment"
+                app:popUpToInclusive="true" />
+
+    </fragment>
+
+    <fragment
+            android:id="@+id/postFragment"
+            android:name="com.charlezz.android.feature.post.PostFragment"
+            android:label="PostFragment"
+            tools:layout="@layout/fragment_post">
+        <action
+                android:id="@+id/action_post_to_postDetailFragment"
+                app:destination="@id/postDetailFragment" />
+        <action
+                android:id="@+id/action_post_to_setting"
+                app:destination="@id/settingFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/postDetailFragment"
+            android:name="com.charlezz.android.feature.detail.PostDetailFragment"
+            tools:layout="@layout/fragment_post_detail">
+        <argument
+                android:name="post"
+                android:defaultValue="@null"
+                app:argType="com.charlezz.android.db.entity.Post"
+                app:nullable="true" />
+    </fragment>
+
+    <fragment
+            android:id="@+id/settingFragment"
+            android:name="com.charlezz.android.feature.setting.SettingFragment"
+            android:label="SettingFragment"
+            tools:layout="@layout/fragment_setting">
+        <action
+                android:id="@+id/action_settingFragment_to_programInfoFragment"
+                app:destination="@id/programInfoFragment" />
+        <action
+                android:id="@+id/action_settingFragment_to_openChatFragment"
+                app:destination="@id/openChatFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/programInfoFragment"
+            android:name="com.charlezz.android.feature.setting.program.ProgramInfoFragment"
+            android:label="ProgramInfoFragment"
+            tools:layout="@layout/fragment_program_info" />
+    <fragment
+            android:id="@+id/openChatFragment"
+            android:name="com.charlezz.android.feature.setting.openchat.OpenChatFragment"
+            android:label="OpenChatFragment"
+            tools:layout="@layout/fragment_open_chat" />
+
+</navigation>

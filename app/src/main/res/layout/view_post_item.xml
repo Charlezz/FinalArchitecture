@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="viewModel"
+                type="com.charlezz.android.feature.post.PostItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:onClick="@{v->viewModel.postListener.onPostClick(viewModel)}"
+            android:onLongClick="@{v->viewModel.postListener.onPostLongClick(viewModel)}"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+        <TextView
+                android:id="@+id/category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(viewModel.category)}"
+                android:textColor="@{viewModel.getRandomColor(context)}"
+                android:textSize="@dimen/size_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Android" />
+
+        <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{viewModel.title}"
+                android:textColor="#222222"
+                android:textSize="@dimen/size_title1"
+                android:textStyle="bold"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toTopOf="@id/content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/category"
+                tools:text="2020 네이버 테크콘서트 - 100만 달러짜 빠른 앱을 만드는 비법 전" />
+
+        <TextView
+                android:id="@+id/content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:ellipsize="end"
+                android:text="@{viewModel.excerpt}"
+                android:textSize="@dimen/size_title2"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toTopOf="@id/author"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title"
+                tools:text="http://techcon.naver.com/ 네이버 테크콘서트 2020 에서 연사를 맡게 되었습니다. 발표 주제 : 100만 달러짜리 빠른 앱을 만드는 비법 전수 위의 링크를 통해 8월 16일 까지 신청가능하며, 행사는 온라인으로 진행되기 때문에 부담없이 참석 가능합니다. 많은 참석 부탁드립니다. [행사가 끝난 뒤 이 페이지에 발표영상을 업로드 할 예정입니다]" />
+
+        <TextView
+                android:id="@+id/author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/author"
+                android:textSize="@dimen/size_text"
+                app:layout_constraintBottom_toTopOf="@id/divider"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/content"
+                tools:text="글쓴이" />
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="@{viewModel.author}"
+                android:textSize="@dimen/size_text"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/author"
+                app:layout_constraintStart_toEndOf="@id/author"
+                app:layout_constraintTop_toTopOf="@id/author"
+                tools:text="Charlezz" />
+
+        <View
+                android:id="@+id/divider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/author" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+                name="toolbarViewModel"
+                type="com.charlezz.android.feature.ToolbarViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".feature.MainActivity">
+
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:toolbarBackgroundColor="@{toolbarViewModel.backgroundColor}"
+                app:toolbarTitle="@{toolbarViewModel.title}"
+                app:toolbarTitleColor="@{toolbarViewModel.titleColor}"
+                app:toolbarVisible="@{toolbarViewModel.visible}"
+                app:toolbarNavIcon="@{toolbarViewModel.navIconRes}"
+                app:toolbarNavIconTint="@{toolbarViewModel.navIconTint}"
+                app:toolbarNavClick="@{toolbarViewModel}"
+                />
+
+        <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/navHostFragment"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:defaultNavHost="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar"
+                app:navGraph="@navigation/main_graph" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="size_header1">32dp</dimen>
+    <dimen name="size_header2">24dp</dimen>
+    <dimen name="size_header3">20dp</dimen>
+    <dimen name="size_title1">16dp</dimen>
+    <dimen name="size_title2">14dp</dimen>
+    <dimen name="size_text">12dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+</resources>

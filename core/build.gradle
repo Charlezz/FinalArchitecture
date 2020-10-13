@@ -1,0 +1,104 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+
+android {
+    compileSdkVersion build_versions.compile_sdk
+
+    defaultConfig {
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+    dataBinding.enabled = true
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api project(path: ':HtmlTextView')
+
+    api deps.kotlin.stdlib
+    api deps.app_compat
+    api deps.constraint_layout
+
+    api deps.core_ktx
+    api deps.fragment.runtime_ktx
+    testApi deps.coroutines.test
+
+    testApi deps.junit
+    testApi deps.mockito.core
+    androidTestApi deps.atsl.runner
+    androidTestApi deps.espresso.core
+
+    // ViewModel and LiveData
+    api deps.lifecycle.viewmodel_ext
+
+    // Room
+    api deps.room.runtime
+    api deps.room.ktx
+    // optional - RxJava support for Room
+    api deps.room.rxjava2
+
+    // Test helpers
+    testApi deps.room.testing
+
+    //design support library
+    api deps.material
+
+    //retrofit
+    api deps.retrofit.runtime
+    api deps.retrofit.gson
+    api deps.retrofit.mock
+    api deps.retrofit.scalar
+
+    //glide
+    api deps.glide.runtime
+    kapt deps.glide.compiler
+
+    //paging
+    api deps.paging.runtime
+    testApi deps.paging.test
+
+    //multidex
+    api deps.multidex
+
+    //navigation component
+    api deps.navigation.fragment_ktx
+    api deps.navigation.ui_ktx
+    api deps.navigation.dynamic_feature
+    androidTestApi deps.navigation.testing
+
+    //hilt
+    api deps.hilt.runtime
+    kapt deps.hilt.compiler
+    api deps.hilt_android.viewmodel
+    kapt deps.hilt_android.compiler
+
+    //timber
+    api deps.timber
+
+    //security
+    api deps.security
+
+
+
+}
