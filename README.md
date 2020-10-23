@@ -13,7 +13,7 @@
 
 - [Hilt](https://www.charlezz.com/?p=44416) : Dagger 기반의 단일 컴포넌트 지향 의존성 주입 라이브러리
 - [Dagger2](https://www.charlezz.com/?p=428) : 객체의 생성을 담당하며 Activity나 Fragment의 생명주기에 맞게 인스턴스를 주입하고 관리한다.
-- [Paging3](https://charlezz.com) : 포스팅 예정
+- [Paging3](https://www.charlezz.com/?p=44562) : 다양한 데이터 소스로 부터 데이터를 나누어 효과적으로 로딩할 수 있게 한다. RemoteMediator를 사용하여 오프라인 모드를 지원한다.
 - [DataBinding](https://developer.android.com/topic/libraries/data-binding/?hl=ko) : UI요소들과 Observable한 데이터의 바인딩을 도와주는 라이브러리
 - [Lifecycles](https://developer.android.com/reference/android/arch/lifecycle/Lifecycle) :  액티비티와 프레그먼트의 생명주기를 관리
 - [LiveData](http://www.charlezz.com/?p=363) : 데이터의 변경을 감지 할 수 있으며, View에게 변경 이벤트 전달.
